@@ -1,6 +1,6 @@
 const mockClient = {
-  getProxyAuth: () => Promise.resolve({}),
-  getAdminGenericProxyAuth: () => Promise.resolve({}),
+  getProxyAuth: () => new Promise(() => {}),
+  getAdminGenericProxyAuth: () => new Promise(() => {}),
   resize: () => {},
   setWidth: () => {},
   setHeight: () => {},
