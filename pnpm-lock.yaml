@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@deskpro/app-sdk':
-    specifier: 3.0.8
-    version: 3.0.8(@babel/core@7.22.9)(@deskpro/deskpro-ui@7.1.0)(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(typescript@4.9.5)
+    specifier: 2.1.6
+    version: 2.1.6(@babel/core@7.22.9)(@deskpro/deskpro-ui@7.1.0)(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(typescript@4.9.5)
   '@deskpro/deskpro-ui':
     specifier: ^7.1.0
     version: 7.1.0(@types/web@0.0.86)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
@@ -91,6 +91,9 @@ devDependencies:
   '@types/styled-components':
     specifier: ^5.1.23
     version: 5.1.23
+  '@types/uuid':
+    specifier: ^9.0.6
+    version: 9.0.6
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.8.0
     version: 6.8.0(@typescript-eslint/parser@6.8.0)(eslint@8.4.1)(typescript@4.9.5)
@@ -537,8 +540,8 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@deskpro/app-sdk@3.0.8(@babel/core@7.22.9)(@deskpro/deskpro-ui@7.1.0)(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(typescript@4.9.5):
-    resolution: {integrity: sha512-pXOPRNZ9M8LQj2OgwNw5Ebvpv9ku13BFfMlnlezPTX+SyJtkAemm+uaVCv/vOmtapRroG7z3I+LxKofOAiP18A==}
+  /@deskpro/app-sdk@2.1.6(@babel/core@7.22.9)(@deskpro/deskpro-ui@7.1.0)(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(typescript@4.9.5):
+    resolution: {integrity: sha512-ql1R+tQ8EZYJUpN1WfLPFE0DkuSaZE2vltOm/C2L7SvEbGfBEDDv8krq0pBs0d/1bBt2FmxCZJ2lajgQAWWl+A==}
     engines: {node: ^16.0.0}
     peerDependencies:
       '@deskpro/deskpro-ui': ^7
@@ -1628,6 +1631,10 @@ packages:
 
   /@types/tough-cookie@4.0.2:
     resolution: {integrity: sha512-Q5vtl1W5ue16D+nIaW8JWebSSraJVlK+EthKn7e7UcD4KWsaSJ8BqGPXNaPghgtcn/fhvrN17Tv8ksUsQpiplw==}
+    dev: true
+
+  /@types/uuid@9.0.6:
+    resolution: {integrity: sha512-BT2Krtx4xaO6iwzwMFUYvWBWkV2pr37zD68Vmp1CDV196MzczBRxuEpD6Pr395HAgebC/co7hOphs53r8V7jew==}
     dev: true
 
   /@types/web@0.0.86:

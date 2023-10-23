@@ -15,7 +15,7 @@
     "bumpManifestVer": "node ./bin/bumpManifestVer.js"
   },
   "dependencies": {
-    "@deskpro/app-sdk": "3.0.8",
+    "@deskpro/app-sdk": "2.1.6",
     "@deskpro/deskpro-ui": "^7.1.0",
     "@heroicons/react": "1.0.6",
     "@tanstack/react-query": "^4.36.1",
@@ -45,6 +45,7 @@
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
     "@types/styled-components": "^5.1.23",
+    "@types/uuid": "^9.0.6",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
     "@typescript/lib-dom": "npm:@types/web@^0.0.86",

@@ -1,6 +1,6 @@
 import isEmpty from "lodash/isEmpty";
 import { proxyFetch } from "@deskpro/app-sdk";
-import { AUTH_URL } from "../../constants";
+import { GRAPHQL_URL } from "../../constants";
 import { getQueryParams } from "../../utils";
 import { LinearError } from "./LinearError";
 import type { Request } from "../../types";
@@ -15,7 +15,7 @@ const baseRequest: Request = async (client, {
 }) => {
   const dpFetch = await proxyFetch(client);
 
-  const baseUrl = rawUrl ? rawUrl : `${AUTH_URL}${url}`;
+  const baseUrl = rawUrl ? rawUrl : `${GRAPHQL_URL}${url || ""}`;
   const params = getQueryParams(queryParams);
 
   const requestUrl = `${baseUrl}${isEmpty(params) ? "": `?${params}`}`;
