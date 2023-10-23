@@ -1,0 +1,14 @@
+{
+  "errors": [
+    {
+      "message": "Authentication required, not authenticated",
+      "extensions": {
+        "code": "AUTHENTICATION_ERROR",
+        "type": "authentication error",
+        "userError": true,
+        "userPresentableMessage": "You need to authenticate to access this operation.",
+        "meta": {}
+      }
+    }
+  ]
+}
