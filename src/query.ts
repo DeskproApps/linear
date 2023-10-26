@@ -13,7 +13,7 @@ const queryClient = new QueryClient({
 });
 
 const QueryKey = {
-  //..
+  ISSUES: "issues",
 }
 
 export { queryClient, QueryKey };

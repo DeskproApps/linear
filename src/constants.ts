@@ -6,6 +6,8 @@ export const DATE_FORMAT = "dd MMM, yyyy";
 
 export const TIME_FORMAT = "H:mm";
 
+export const DATE_ON = "yyyy-MM-dd";
+
 /** Deskpro */
 export const APP_PREFIX = "linear";
 

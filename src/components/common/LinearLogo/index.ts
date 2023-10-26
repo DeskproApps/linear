@@ -1,0 +1,1 @@
+export { LinearLogo } from "./LinearLogo";

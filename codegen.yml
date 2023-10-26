@@ -1,0 +1,6 @@
+overwrite: true
+schema: "src/services/linear/Linear-API@current.graphql"
+generates:
+  src/services/linear/GraphQLSchemas.ts:
+    plugins:
+      - "typescript"

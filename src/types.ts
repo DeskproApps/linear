@@ -1,6 +1,6 @@
 import type { To, ParamKeyValuePair } from "react-router-dom";
 import type { DropdownValueType } from "@deskpro/deskpro-ui";
-import type { Context, IDeskproClient } from "@deskpro/app-sdk";
+import type { Context, IDeskproClient, V2ProxyRequestInitBody } from "@deskpro/app-sdk";
 import type { Response } from "./services/linear/types";
 
 /** Common types */
@@ -20,7 +20,7 @@ export type RequestParams = {
   url?: string,
   rawUrl?: string,
   method?: ApiRequestMethod,
-  data?: RequestInit["body"]|Dict<string>,
+  data?: Dict<string>|RequestInit["body"]|V2ProxyRequestInitBody["body"]
   headers?: Dict<string>,
   queryParams?: string|Dict<string>|ParamKeyValuePair[],
 };
@@ -30,7 +30,8 @@ export type Request = <T>(
   params: RequestParams,
 ) => Response<T>;
 
-export type FetchOptions = Pick<RequestParams, "method"|"headers"> & { body?: string };
+// V2ProxyRequestInit
+export type FetchOptions = Pick<RequestParams, "method"|"headers"> & V2ProxyRequestInitBody;
 
 /** Deskpro types */
 export type Settings = {

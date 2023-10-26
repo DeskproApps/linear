@@ -58,6 +58,7 @@ module.exports = {
     ".d.ts",
     "mocks",
     ".app-story.tsx",
+    "src/services/linear/GraphQLSchemas.ts"
   ],
   globalSetup: "./config/jest/global-setup.js",
 };

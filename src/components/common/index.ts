@@ -1,4 +1,10 @@
+export * from "./Typography";
 export { Button, AnchorButton } from "./Button";
 export { ErrorBlock } from "./ErrorBlock";
 export { Container } from "./Layout";
-export * from "./Typography";
+export { NoFound } from "./NoFound";
+export { Card } from "./Card";
+export { LinearLogo } from "./LinearLogo";
+export { DeskproTickets } from "./DeskproTickets";
+export { IssueLabel } from "./IssueLabel";
+export { Member } from "./Member";
