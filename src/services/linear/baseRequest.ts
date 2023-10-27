@@ -1,35 +1,35 @@
 import isEmpty from "lodash/isEmpty";
+import isString from "lodash";
 import { proxyFetch } from "@deskpro/app-sdk";
-import { AUTH_URL } from "../../constants";
+import { GRAPHQL_URL, placeholders } from "../../constants";
 import { getQueryParams } from "../../utils";
 import { LinearError } from "./LinearError";
-import type { Request } from "../../types";
+import type { Request, FetchOptions } from "../../types";
 
 const baseRequest: Request = async (client, {
   url,
   rawUrl,
-  data = {},
-  method = "GET",
+  data,
+  method = "POST",
   queryParams = {},
   headers: customHeaders,
 }) => {
   const dpFetch = await proxyFetch(client);
 
-  const baseUrl = rawUrl ? rawUrl : `${AUTH_URL}${url}`;
+  const baseUrl = rawUrl ? rawUrl : `${GRAPHQL_URL}${url || ""}`;
   const params = getQueryParams(queryParams);
 
   const requestUrl = `${baseUrl}${isEmpty(params) ? "": `?${params}`}`;
-  const options: RequestInit = {
+  const options: FetchOptions = {
     method,
     headers: {
+      "Authorization": `Bearer ${placeholders.ACCESS_TOKEN}`,
       ...customHeaders,
     },
   };
 
-  if (data instanceof FormData) {
-    options.body = data;
-  } else if (!isEmpty(data)) {
-    options.body = JSON.stringify(data);
+  if (!isEmpty(data)) {
+    options.body = isString(data) ? data as string : JSON.stringify(data);
     options.headers = {
       "Content-Type": "application/json",
       ...options.headers,

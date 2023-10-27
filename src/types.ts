@@ -20,7 +20,7 @@ export type RequestParams = {
   url?: string,
   rawUrl?: string,
   method?: ApiRequestMethod,
-  data?: object,
+  data?: RequestInit["body"]|Dict<string>,
   headers?: Dict<string>,
   queryParams?: string|Dict<string>|ParamKeyValuePair[],
 };
@@ -29,6 +29,8 @@ export type Request = <T>(
   client: IDeskproClient,
   params: RequestParams,
 ) => Response<T>;
+
+export type FetchOptions = Pick<RequestParams, "method"|"headers"> & { body?: string };
 
 /** Deskpro types */
 export type Settings = {
