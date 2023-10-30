@@ -1,8 +1,19 @@
-import { useSetTitle, useRegisterElements } from "../../hooks";
+import { LoadingSpinner } from "@deskpro/app-sdk";
+import {
+  useSetTitle,
+  useLinkedIssues,
+  useSetBadgeCount,
+  useRegisterElements,
+} from "../../hooks";
+import { Home } from "../../components";
 import type { FC } from "react";
 
 const HomePage: FC = () => {
+  const { isLoading, issues } = useLinkedIssues();
+
   useSetTitle("Linear");
+
+  useSetBadgeCount(issues);
 
   useRegisterElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
@@ -21,10 +32,14 @@ const HomePage: FC = () => {
     });
   });
 
+  if (isLoading) {
+    return (
+      <LoadingSpinner/>
+    );
+  }
+
   return (
-    <>
-      HomePage
-    </>
+    <Home issues={issues} />
   );
 };
 

@@ -10,7 +10,7 @@ import type { Issue } from "../../services/linear/types";
 
 export type Props = {
   issue: Issue,
-  onClickTitle: () => void,
+  onClickTitle?: () => void,
 };
 
 const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {

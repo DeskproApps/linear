@@ -7,6 +7,7 @@ import type { GQL, Issue } from "./types";
 
 type Params = {
   q?: string,
+  ids: Array<Issue["id"]>,
 };
 
 const getIssuesService = (client: IDeskproClient, params?: Params) => {
@@ -14,6 +15,10 @@ const getIssuesService = (client: IDeskproClient, params?: Params) => {
 
   if (params?.q) {
     variables = set(variables, ["filter", "title", "containsIgnoreCase"], params?.q);
+  }
+
+  if (params?.ids) {
+    variables = set(variables, ["filter", "id", "in"], params?.ids);
   }
 
   const query = gql(variables)`
