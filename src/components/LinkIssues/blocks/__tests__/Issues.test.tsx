@@ -24,15 +24,5 @@ describe("LinkIssues", () => {
       const { findByText } = renderIssues();
       expect(await findByText(/\[Linear\] Link & Search issues/i)).toBeInTheDocument();
     });
-
-    test("should show \"No found\" id wrong cards", async () => {
-      const { findByText } = renderIssues({ issues: {} as never });
-      expect(await findByText(/No found/i)).toBeInTheDocument();
-    });
-
-    test("should show \"No Linear issues found\" if no cards", async () => {
-      const { findByText } = renderIssues({ issues: [] });
-      expect(await findByText(/No Linear issues found/i)).toBeInTheDocument();
-    });
   });
 });

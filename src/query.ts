@@ -14,6 +14,7 @@ const queryClient = new QueryClient({
 
 const QueryKey = {
   ISSUES: "issues",
+  LINKED_ISSUES: "linkedIssues",
 }
 
 export { queryClient, QueryKey };

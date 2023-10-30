@@ -2,7 +2,7 @@ export * from "./Typography";
 export { Button, AnchorButton } from "./Button";
 export { ErrorBlock } from "./ErrorBlock";
 export { Container } from "./Layout";
-export { NoFound } from "./NoFound";
+export { NoFound, NoFoundIssues } from "./NoFound";
 export { Card } from "./Card";
 export { LinearLogo } from "./LinearLogo";
 export { DeskproTickets } from "./DeskproTickets";
