@@ -6,6 +6,10 @@ const HomePage: FC = () => {
 
   useRegisterElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
+    registerElement("plus", {
+      type: "plus_button",
+      payload: { type: "changePage", path: "/issues/link" },
+    });
     registerElement("menu", {
       type: "menu",
       items: [{

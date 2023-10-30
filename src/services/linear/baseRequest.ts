@@ -42,7 +42,7 @@ const baseRequest: Request = async (client, {
     let errorData;
 
     try {
-       errorData = await res.json();
+      errorData = await res.json();
     } catch (e) {
       errorData = {};
     }

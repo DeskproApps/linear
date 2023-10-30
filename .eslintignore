@@ -6,3 +6,4 @@ node_modules/
 lib
 storybook-static
 .storybook
+src/services/linear/GraphQLSchemas.ts

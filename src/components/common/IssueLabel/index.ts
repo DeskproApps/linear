@@ -1,0 +1,1 @@
+export { IssueLabel } from "./IssueLabel";
