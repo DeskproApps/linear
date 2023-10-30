@@ -33,7 +33,7 @@ const useLinkedIssues: UseLinkedIssues = () => {
   );
 
   return {
-    isLoading: [linkedIds].some(({ isLoading }) => isLoading),
+    isLoading: [linkedIds, issues].some(({ isLoading }) => isLoading),
     issues: issues.data || [] as Issue[],
   };
 };

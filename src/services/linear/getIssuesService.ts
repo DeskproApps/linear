@@ -7,7 +7,7 @@ import type { GQL, Issue } from "./types";
 
 type Params = {
   q?: string,
-  ids: Array<Issue["id"]>,
+  ids?: Array<Issue["id"]>,
 };
 
 const getIssuesService = (client: IDeskproClient, params?: Params) => {

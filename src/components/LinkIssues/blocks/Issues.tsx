@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import size from "lodash/size";
 import { Checkbox } from "@deskpro/deskpro-ui";
 import { LoadingSpinner, HorizontalDivider } from "@deskpro/app-sdk";
 import { NoFoundIssues, Card } from "../../common";
