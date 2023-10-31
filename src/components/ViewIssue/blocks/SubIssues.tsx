@@ -1,4 +1,5 @@
 import size from "lodash/size";
+import { P5 } from "@deskpro/deskpro-ui";
 import { Title } from "@deskpro/app-sdk";
 import { ChecklistItem } from "../../common";
 import type { FC } from "react";
@@ -13,7 +14,7 @@ const SubIssues: FC<Props> = ({ subIssues }) => {
     <>
       <Title title={`Sub-Issues (${size(subIssues)})`} />
       {(!Array.isArray(subIssues) || !size(subIssues))
-        ? "No sub-issues found"
+        ? <P5>No sub-issues found</P5>
         : subIssues.map((issue) => (
           <ChecklistItem
             disabled

@@ -12,6 +12,7 @@ const converter = new showdown.Converter({
   strikethrough: true,
   simplifiedAutoLink: true,
   openLinksInNewWindow: true,
+  disableForced4SpacesIndentedSublists: true,
 });
 
 const Markdown: FC<Props> = ({ text }) => (
