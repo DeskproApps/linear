@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { LoadingSpinner } from "@deskpro/app-sdk";
 import {
   useSetTitle,
@@ -7,9 +9,15 @@ import {
 } from "../../hooks";
 import { Home } from "../../components";
 import type { FC } from "react";
+import type { Issue } from "../../services/linear/types";
 
 const HomePage: FC = () => {
+  const navigate = useNavigate();
   const { isLoading, issues } = useLinkedIssues();
+
+  const onNavigateToIssue = useCallback((issueId: Issue["id"]) => {
+    navigate(`/issues/view/${issueId}`);
+  }, [navigate]);
 
   useSetTitle("Linear");
 
@@ -39,7 +47,7 @@ const HomePage: FC = () => {
   }
 
   return (
-    <Home issues={issues} />
+    <Home issues={issues} onNavigateToIssue={onNavigateToIssue} />
   );
 };
 

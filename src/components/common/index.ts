@@ -8,3 +8,6 @@ export { LinearLogo } from "./LinearLogo";
 export { DeskproTickets } from "./DeskproTickets";
 export { IssueLabel } from "./IssueLabel";
 export { Member } from "./Member";
+export { Markdown } from "./Markdown";
+export { ChecklistItem } from "./ChecklistItem";
+export { Comment } from "./Comment";

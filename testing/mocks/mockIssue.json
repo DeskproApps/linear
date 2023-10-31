@@ -1,35 +1,123 @@
 {
-  "id": "c75196e4-9beb-46c8-8987-e2a334fc50ff",
-  "identifier": "DES-10",
-  "title": "[Linear] Link & Search issues",
-  "description": null,
-  "priority": 1,
-  "priorityLabel": "Urgent",
-  "url": "https://linear.app/deskpro-linear/issue/DES-10/[linear]-link-and-search-issues",
-  "dueDate": "2023-11-05",
-  "state": {
-    "id": "f3a56e47-0995-446c-ba16-95f2d04a4387",
-    "name": "In Progress"
-  },
-  "labels": {
-    "nodes": [
-      {
-        "color": "#BB87FC",
-        "id": "48eb80d7-a6e1-453d-a7ba-0241734eb48e",
-        "name": "Feature"
+  "data": {
+    "issue": {
+      "id": "c75196e4-9beb-46c8-8987-e2a334fc50ff",
+      "identifier": "DP-10",
+      "title": "[Linear] Link & Search issues",
+      "description": null,
+      "priority": 1,
+      "priorityLabel": "Urgent",
+      "url": "https://linear.app/deskpro-linear/issue/DP-10/[linear]-link-and-search-issues",
+      "dueDate": "2023-11-05",
+      "state": {
+        "id": "9d6c2dba-eacf-4387-bcfe-48e7d88be311",
+        "name": "Done"
       },
-      {
-        "color": "#4EA7FC",
-        "id": "3051411f-e7c7-4701-9bea-4278e5d11c0b",
-        "name": "Improvement"
+      "labels": {
+        "nodes": [
+          {
+            "color": "#BB87FC",
+            "id": "48eb80d7-a6e1-453d-a7ba-0241734eb48e",
+            "name": "Feature"
+          },
+          {
+            "color": "#4EA7FC",
+            "id": "3051411f-e7c7-4701-9bea-4278e5d11c0b",
+            "name": "Improvement"
+          }
+        ]
+      },
+      "assignee": {
+        "id": "2ad5db8b-3e03-4c6a-87cb-04519ff7d257",
+        "displayName": "zpawn",
+        "avatarUrl": "https://public.linear.app/35b89a4c-5aca-493a-9a5a-03fd9df2bb83/a93e4e98-b3d9-4f2b-97c7-d3271da89389/5d4b2c6f-2610-44bf-8133-45813b7e8bb0",
+        "name": "ilia makarov",
+        "email": "ilia.makarov@me.com"
+      },
+      "children": {
+        "nodes": [
+          {
+            "id": "15c372de-c820-4dae-95b1-eceeeff7679e",
+            "identifier": "DP-14",
+            "title": "Write tests",
+            "state": {
+              "id": "9d6c2dba-eacf-4387-bcfe-48e7d88be311",
+              "name": "Done",
+              "type": "completed"
+            }
+          },
+          {
+            "id": "f7157e24-ec29-4d96-b0e3-60cb2033915e",
+            "identifier": "DP-13",
+            "title": "Linking tasks into DP ticket using entity associations",
+            "state": {
+              "id": "f3a56e47-0995-446c-ba16-95f2d04a4387",
+              "name": "In Progress",
+              "type": "started"
+            }
+          },
+          {
+            "id": "ee95f682-8a8f-4935-9b6a-f1e0525e19ff",
+            "identifier": "DP-12",
+            "title": "Search issues via API",
+            "state": {
+              "id": "9d6c2dba-eacf-4387-bcfe-48e7d88be311",
+              "name": "Done",
+              "type": "completed"
+            }
+          },
+          {
+            "id": "d2953b4c-6361-48f2-95cb-bb5ab2cb2e32",
+            "identifier": "DP-11",
+            "title": "Create page",
+            "state": {
+              "id": "9d6c2dba-eacf-4387-bcfe-48e7d88be311",
+              "name": "Done",
+              "type": "completed"
+            }
+          }
+        ]
+      },
+      "comments": {
+        "nodes": [
+          {
+            "id": "a69fc658-bb0b-4952-8b5e-59a9ab7a2df5",
+            "body": "Very long text Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ea impedit ipsam laboriosam laborum, minus neque nobis nulla numquam provident quibusdam quos reiciendis velit? Deleniti et nihil nobis quisquam repellendus!",
+            "createdAt": "2023-10-31T11:14:42.242Z",
+            "user": {
+              "id": "2ad5db8b-3e03-4c6a-87cb-04519ff7d257",
+              "displayName": "zpawn",
+              "avatarUrl": "https://public.linear.app/35b89a4c-5aca-493a-9a5a-03fd9df2bb83/a93e4e98-b3d9-4f2b-97c7-d3271da89389/5d4b2c6f-2610-44bf-8133-45813b7e8bb0",
+              "name": "ilia makarov",
+              "email": "ilia.makarov@me.com"
+            }
+          },
+          {
+            "id": "1fd61973-f5c9-401b-87b0-794c907f6865",
+            "body": "### Comment with Markdown\n\n~comment~ **with** *markdown*\n\n* one\n* two\n* three\n\n[http://deskpro.com/apps](http://deskpro.com/apps)\n\nhttps://google.com",
+            "createdAt": "2023-10-31T10:43:52.102Z",
+            "user": {
+              "id": "2ad5db8b-3e03-4c6a-87cb-04519ff7d257",
+              "displayName": "zpawn",
+              "avatarUrl": "https://public.linear.app/35b89a4c-5aca-493a-9a5a-03fd9df2bb83/a93e4e98-b3d9-4f2b-97c7-d3271da89389/5d4b2c6f-2610-44bf-8133-45813b7e8bb0",
+              "name": "ilia makarov",
+              "email": "ilia.makarov@me.com"
+            }
+          },
+          {
+            "id": "675b252f-8624-4671-becd-73144884fc07",
+            "body": "one comment",
+            "createdAt": "2023-10-30T15:36:58.018Z",
+            "user": {
+              "id": "2ad5db8b-3e03-4c6a-87cb-04519ff7d257",
+              "displayName": "zpawn",
+              "avatarUrl": "https://public.linear.app/35b89a4c-5aca-493a-9a5a-03fd9df2bb83/a93e4e98-b3d9-4f2b-97c7-d3271da89389/5d4b2c6f-2610-44bf-8133-45813b7e8bb0",
+              "name": "ilia makarov",
+              "email": "ilia.makarov@me.com"
+            }
+          }
+        ]
       }
-    ]
-  },
-  "assignee": {
-    "id": "2ad5db8b-3e03-4c6a-87cb-04519ff7d257",
-    "displayName": "zpawn",
-    "avatarUrl": "https://public.linear.app/35b89a4c-5aca-493a-9a5a-03fd9df2bb83/a93e4e98-b3d9-4f2b-97c7-d3271da89389/5d4b2c6f-2610-44bf-8133-45813b7e8bb0",
-    "name": "ilia makarov",
-    "email": "ilia.makarov@me.com"
+    }
   }
 }

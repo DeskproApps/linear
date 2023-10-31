@@ -34,6 +34,7 @@ const LinkIssues: FC<Props> = ({
         <Search
           isFetching={isLoading}
           onChange={onChangeSearchQuery}
+          inputProps={{ variant: "normal" }}
         />
         <Buttons
           isSubmitting={isSubmitting}

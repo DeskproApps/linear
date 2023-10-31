@@ -1,0 +1,61 @@
+{
+  "data": {
+    "issues": {
+      "nodes": [
+        {
+          "id": "11b38474-c92e-4744-99d5-057ef008db9d",
+          "identifier": "DP-15",
+          "title": "[Linear] Home",
+          "description": "### First line on description\n\n1. item 1\n2. item 2\n3. item 3\n\nunnumerable list:\n\n* item\n* item\n* item\n\n---\n\nbest regards\nilia makarov",
+          "priority": 0,
+          "priorityLabel": "No priority",
+          "url": "https://linear.app/deskpro-linear/issue/DP-15/[linear]-home",
+          "dueDate": null,
+          "state": {
+            "id": "f3a56e47-0995-446c-ba16-95f2d04a4387",
+            "name": "In Progress"
+          },
+          "labels": {
+            "nodes": []
+          },
+          "assignee": null
+        },
+        {
+          "id": "c75196e4-9beb-46c8-8987-e2a334fc50ff",
+          "identifier": "DP-10",
+          "title": "[Linear] Link & Search issues",
+          "description": null,
+          "priority": 1,
+          "priorityLabel": "Urgent",
+          "url": "https://linear.app/deskpro-linear/issue/DP-10/[linear]-link-and-search-issues",
+          "dueDate": "2023-11-05",
+          "state": {
+            "id": "9d6c2dba-eacf-4387-bcfe-48e7d88be311",
+            "name": "Done"
+          },
+          "labels": {
+            "nodes": [
+              {
+                "color": "#BB87FC",
+                "id": "48eb80d7-a6e1-453d-a7ba-0241734eb48e",
+                "name": "Feature"
+              },
+              {
+                "color": "#4EA7FC",
+                "id": "3051411f-e7c7-4701-9bea-4278e5d11c0b",
+                "name": "Improvement"
+              }
+            ]
+          },
+          "assignee": {
+            "id": "2ad5db8b-3e03-4c6a-87cb-04519ff7d257",
+            "displayName": "zpawn",
+            "avatarUrl": "https://public.linear.app/35b89a4c-5aca-493a-9a5a-03fd9df2bb83/a93e4e98-b3d9-4f2b-97c7-d3271da89389/5d4b2c6f-2610-44bf-8133-45813b7e8bb0",
+            "name": "ilia makarov",
+            "email": "ilia.makarov@me.com"
+          }
+        }
+      ]
+    }
+  }
+}
