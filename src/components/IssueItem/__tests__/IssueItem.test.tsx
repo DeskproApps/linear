@@ -19,12 +19,12 @@ describe("DeskproTickets", () => {
 
   test("render", async () => {
       const { findByText } = renderIssueItem({
-        issue: normalize(mockIssue) as never,
+        issue: normalize(mockIssue.data.issue) as never,
       });
 
       expect(await findByText(/\[Linear\] Link & Search issues/i)).toBeInTheDocument();
-      expect(await findByText(/DES-10/i)).toBeInTheDocument();
-      expect(await findByText(/In Progress/i)).toBeInTheDocument();
+      expect(await findByText(/DP-10/i)).toBeInTheDocument();
+      expect(await findByText(/Done/i)).toBeInTheDocument();
       expect(await findByText(/Urgent/i)).toBeInTheDocument();
       expect(await findByText(/05 Nov, 2023/i)).toBeInTheDocument();
       expect(await findByText(/Urgent/i)).toBeInTheDocument();
