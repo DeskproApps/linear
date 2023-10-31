@@ -1,0 +1,10 @@
+{
+  "team": "team-001",
+  "title": "Reinforcement of the Shadow Tower",
+  "status": "status-001",
+  "priority": 2,
+  "dueDate": "2023-12-30T22:00:00.000Z",
+  "description": "The Reinforcement of the Shadow Tower beyond the Wall.",
+  "assignee": "user-001",
+  "labels": ["label-001", "label-002", "label-003"]
+}

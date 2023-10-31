@@ -1,0 +1,32 @@
+{
+  "data": {
+    "team": {
+      "id": "4711a15c-8025-40d9-b0b1-2e17179a1d2a",
+      "members": {
+        "nodes": [
+          {
+            "id": "07980801-1673-4a5c-8749-a7e84fc077ac",
+            "email": "xzpawnx@gmail.com",
+            "displayName": "jeor.mormont",
+            "name": "Jeor Mormont",
+            "avatarUrl": "https://public.linear.app/35b89a4c-5aca-493a-9a5a-03fd9df2bb83/d3360790-52c7-436e-a146-a727d633fdd5/3f54edd5-70ee-4424-8c2f-d19d0c0324d0"
+          },
+          {
+            "id": "1424a579-05c7-4fbf-bcfc-cd96ba5ef793",
+            "email": "zpawn@protonmail.com",
+            "displayName": "alliser.thorne",
+            "name": "Alliser Thorne",
+            "avatarUrl": "https://public.linear.app/35b89a4c-5aca-493a-9a5a-03fd9df2bb83/2da26351-a03e-41b7-8bec-cafd6b44c868/c643e076-640f-417f-abe7-cc57f31b24b2"
+          },
+          {
+            "id": "2ad5db8b-3e03-4c6a-87cb-04519ff7d257",
+            "email": "ilia.makarov@me.com",
+            "displayName": "jon.snow",
+            "name": "Jon Snow",
+            "avatarUrl": "https://public.linear.app/35b89a4c-5aca-493a-9a5a-03fd9df2bb83/17efd0c7-42e9-4e56-8e09-4d2dc1f5f5f8/00bea61b-bed5-4940-bd04-1f266041610b"
+          }
+        ]
+      }
+    }
+  }
+}

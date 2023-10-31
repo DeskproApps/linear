@@ -11,3 +11,6 @@ export { Member } from "./Member";
 export { Markdown } from "./Markdown";
 export { ChecklistItem } from "./ChecklistItem";
 export { Comment } from "./Comment";
+export { Label } from "./Label";
+export { TextArea } from "./TextArea";
+export { Navigation } from "./Navigation";

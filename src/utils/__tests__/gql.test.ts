@@ -27,5 +27,7 @@ describe("gql", () => {
     expect(query).toBe(result);
   });
 
+  test.todo("work with fragments");
+
   test.todo("pass wrong values");
 });

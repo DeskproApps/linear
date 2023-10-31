@@ -2,7 +2,7 @@ import get from "lodash/get";
 import { baseRequest } from "./baseRequest";
 import { gql, normalize } from "../../utils";
 import type { IDeskproClient } from "@deskpro/app-sdk";
-import type { GQL, Issue } from "./types";
+import type { Issue } from "./types";
 
 const getIssueService = (
   client: IDeskproClient,
@@ -28,9 +28,9 @@ const getIssueService = (
     }
   `;
 
-  return baseRequest<GQL<Issue>>(client, { data: query })
+  return baseRequest<Issue>(client, { data: query })
     .then(normalize)
-    .then((res) => get(res, ["data", "issue"]) || [])
+    .then((res) => get(res, ["data", "issue"]))
 };
 
 export { getIssueService };

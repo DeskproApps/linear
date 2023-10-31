@@ -55,7 +55,11 @@ const useLogin = (): Result => {
         response_type: "code",
         client_id: clientId,
         redirect_uri: callback.callbackUrl,
-        scope: ["read"].join(","),
+        scope: [
+          "read",
+          "issues:create",
+          "comments:create"
+        ].join(","),
         prompt: "consent",
         state: key,
       })}`);

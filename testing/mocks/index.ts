@@ -5,3 +5,5 @@ export { default as mockAuthFailed } from "./mockAuthFailed.json";
 export { default as mockRevokeAccessTokenService } from "./mockRevokeAccessTokenService.json";
 export { default as mockIssue } from "./mockIssue.json";
 export { default as mockIssues } from "./mockIssues.json";
+export { default as mockTeams } from "./mockTeams.json";
+export { default as mockTeamMembers } from "./mockTeamMembers.json";

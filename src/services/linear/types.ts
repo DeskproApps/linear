@@ -1,7 +1,12 @@
 import type {
-  Issue as IssueGQL,
-  IssueLabel,
   Comment,
+  WorkflowState,
+  Team as TeamGQL,
+  User as UserSQL,
+  Issue as IssueGQL,
+  IssueLabel as IssueLabelGQL,
+  IssueCreateInput as IssueCreateInputGQL,
+  IssuePriorityValue as IssuePriorityValueGQL,
 } from "./GraphQLSchemas";
 
 export type Response<T> = Promise<T>;
@@ -60,8 +65,32 @@ export type User = {
 
 export type IssueComment = Comment;
 
+export type IssuePriorityValue = IssuePriorityValueGQL;
+
+export type IssueLabel = IssueLabelGQL;
+
+export type Member = UserSQL;
+
 export type Issue = Omit<IssueGQL, "labels"|"children"|"comments"> & {
   labels: IssueLabel[],
   children: Issue[],
   comments: IssueComment[],
 };
+
+export type Team = Omit<TeamGQL, "states"|"labels"|"members"> & {
+  states: WorkflowState[],
+  labels: IssueLabel[],
+  members: Member[],
+  issuePriorityValues: IssuePriorityValue[],
+};
+
+export type IssueCreateInput = Pick<IssueCreateInputGQL,
+  |"teamId"
+  |"title"
+  |"stateId"
+  |"description"
+  |"dueDate"
+  |"priority"
+  |"labelIds"
+  |"assigneeId"
+>;

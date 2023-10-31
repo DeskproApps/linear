@@ -1,4 +1,5 @@
 export { getOption } from "./getOption";
+export { getOptions } from "./getOptions";
 export { getQueryParams } from "./getQueryParams";
 export { isNavigatePayload } from "./isNavigatePayload";
 export { isUnlinkPayload } from "./isUnlinkPayload";
