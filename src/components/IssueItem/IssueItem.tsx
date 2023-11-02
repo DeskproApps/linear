@@ -38,7 +38,7 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
         link={get(issue, ["url"])}
       />
       <TwoProperties
-        leftLabel="issue ID"
+        leftLabel="Issue ID"
         leftText={get(issue, ["identifier"])}
         rightLabel="Status"
         rightText={get(issue, ["state", "name"])}

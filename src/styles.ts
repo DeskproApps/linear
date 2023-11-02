@@ -14,6 +14,10 @@ export const dpNormalize = css`
     margin-top: 0;
   }
 
+  ol, ul {
+    padding-inline-start: 20px;
+  }
+
   img {
     width: 100%;
     height: auto;
