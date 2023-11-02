@@ -2,18 +2,19 @@ import {
   Search,
   HorizontalDivider,
 } from "@deskpro/app-sdk";
-import { Container } from "../common";
+import { Container, Navigation } from "../common";
 import { Buttons, Issues } from "./blocks";
 import type { FC } from "react";
 import type { Issue } from "../../services/linear/types";
 
-type Props = {
+export type Props = {
   isLoading: boolean,
   isSubmitting: boolean,
   issues: Issue[],
   onCancel: () => void,
   onLinkIssues: () => void,
   selectedIssues: Issue[],
+  onNavigateToCreate: () => void,
   onChangeSelectedIssue: (issue: Issue) => void,
   onChangeSearchQuery?: (search: string) => void,
 };
@@ -25,12 +26,14 @@ const LinkIssues: FC<Props> = ({
   onCancel,
   onLinkIssues,
   selectedIssues,
+  onNavigateToCreate,
   onChangeSearchQuery,
   onChangeSelectedIssue,
 }) => {
   return (
     <>
       <Container>
+        <Navigation selected="link" onNavigateToCreate={onNavigateToCreate} />
         <Search
           isFetching={isLoading}
           onChange={onChangeSearchQuery}

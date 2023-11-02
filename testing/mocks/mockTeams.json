@@ -1,0 +1,223 @@
+{
+  "data": {
+    "teams": {
+      "nodes": [
+        {
+          "id": "cceb1641-c487-4b71-853e-ba2cf83d89e4",
+          "name": "Deskpro Team",
+          "color": "#5e6ad2",
+          "icon": "Users",
+          "states": {
+            "nodes": [
+              {
+                "type": "unstarted",
+                "name": "Todo",
+                "id": "a4fa2646-6d0a-4a1f-a830-3d3852f5badc",
+                "color": "#e2e2e2",
+                "position": 1
+              },
+              {
+                "type": "canceled",
+                "name": "Canceled",
+                "id": "838225b3-bd1d-44e1-825c-085feecf1058",
+                "color": "#95a2b3",
+                "position": 4
+              },
+              {
+                "type": "completed",
+                "name": "Done",
+                "id": "43af6b5d-449e-4afe-9d14-9157454aeebc",
+                "color": "#5e6ad2",
+                "position": 3
+              },
+              {
+                "type": "backlog",
+                "name": "Backlog",
+                "id": "34c357c4-0e70-4616-873f-85400d677b85",
+                "color": "#bec2c8",
+                "position": 0
+              },
+              {
+                "type": "started",
+                "name": "In Progress",
+                "id": "0b485f78-e457-4585-9038-d15b6f1a1c7b",
+                "color": "#f2c94c",
+                "position": 2
+              }
+            ]
+          },
+          "defaultIssueState": {
+            "id": "34c357c4-0e70-4616-873f-85400d677b85",
+            "name": "Backlog"
+          },
+          "labels": {
+            "nodes": [
+              {
+                "id": "ac0db0f5-38d5-4289-be46-149a36a60b1f",
+                "name": "White Walker",
+                "color": "#26b5ce"
+              },
+              {
+                "id": "af44adb9-18d4-4ba9-aa23-13a0b0505647",
+                "name": "Defense",
+                "color": "#eb5757"
+              },
+              {
+                "id": "131c7b7d-7551-4890-b539-9c375bf3c993",
+                "name": "Wall",
+                "color": "#95a2b3"
+              },
+              {
+                "id": "d302dfea-82cd-413d-bf27-9a397cb616cc",
+                "name": "Bug",
+                "color": "#EB5757"
+              },
+              {
+                "id": "48eb80d7-a6e1-453d-a7ba-0241734eb48e",
+                "name": "Feature",
+                "color": "#BB87FC"
+              },
+              {
+                "id": "3051411f-e7c7-4701-9bea-4278e5d11c0b",
+                "name": "Improvement",
+                "color": "#4EA7FC"
+              }
+            ]
+          }
+        },
+        {
+          "id": "4711a15c-8025-40d9-b0b1-2e17179a1d2a",
+          "name": "Game of Thrones",
+          "color": "#26b5ce",
+          "icon": "Crown",
+          "states": {
+            "nodes": [
+              {
+                "type": "started",
+                "name": "In Progress",
+                "id": "f3a56e47-0995-446c-ba16-95f2d04a4387",
+                "color": "#f2c94c",
+                "position": 2
+              },
+              {
+                "type": "canceled",
+                "name": "Canceled",
+                "id": "c628791a-9f99-4a4f-ac7f-481a3b0e1349",
+                "color": "#95a2b3",
+                "position": 4
+              },
+              {
+                "type": "backlog",
+                "name": "Backlog",
+                "id": "b61cfc13-42aa-43c4-9da6-7a3d1dc2639e",
+                "color": "#bec2c8",
+                "position": 0
+              },
+              {
+                "type": "canceled",
+                "name": "Duplicate",
+                "id": "a5523b5a-da00-4280-a246-f4645ca63349",
+                "color": "#95a2b3",
+                "position": 5
+              },
+              {
+                "type": "completed",
+                "name": "Done",
+                "id": "9d6c2dba-eacf-4387-bcfe-48e7d88be311",
+                "color": "#5e6ad2",
+                "position": 3
+              },
+              {
+                "type": "unstarted",
+                "name": "Todo",
+                "id": "8b6719e4-a89a-4f4e-8f1d-da17bd50b197",
+                "color": "#e2e2e2",
+                "position": 1
+              }
+            ]
+          },
+          "defaultIssueState": {
+            "id": "b61cfc13-42aa-43c4-9da6-7a3d1dc2639e",
+            "name": "Backlog"
+          },
+          "labels": {
+            "nodes": [
+              {
+                "id": "663d62cb-e25e-4611-a58d-b2a2f63be740",
+                "name": "Strategy",
+                "color": "#f2994a"
+              },
+              {
+                "id": "f883b3ca-a0a0-42d1-8d6a-7e56f91bd98b",
+                "name": "History",
+                "color": "#5e6ad2"
+              },
+              {
+                "id": "73df9a4d-2382-4d58-adeb-c604dcb271ce",
+                "name": "Research",
+                "color": "#4cb782"
+              },
+              {
+                "id": "11e058e6-5027-4c9d-b896-e33cab06a41b",
+                "name": "Enemy Analysis",
+                "color": "#f2c94c"
+              },
+              {
+                "id": "a64df69d-0a12-40f9-baea-448c1bdbb08e",
+                "name": "White Walker",
+                "color": "#26b5ce"
+              },
+              {
+                "id": "8329f1c0-fb16-412a-8d0b-21bb618cbd9f",
+                "name": "Wall",
+                "color": "#95a2b3"
+              },
+              {
+                "id": "6c627335-6c0f-44b4-a25d-f7fc25c3065c",
+                "name": "Defense",
+                "color": "#eb5757"
+              },
+              {
+                "id": "d302dfea-82cd-413d-bf27-9a397cb616cc",
+                "name": "Bug",
+                "color": "#EB5757"
+              },
+              {
+                "id": "48eb80d7-a6e1-453d-a7ba-0241734eb48e",
+                "name": "Feature",
+                "color": "#BB87FC"
+              },
+              {
+                "id": "3051411f-e7c7-4701-9bea-4278e5d11c0b",
+                "name": "Improvement",
+                "color": "#4EA7FC"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "issuePriorityValues": [
+      {
+        "priority": 0,
+        "label": "No priority"
+      },
+      {
+        "priority": 1,
+        "label": "Urgent"
+      },
+      {
+        "priority": 2,
+        "label": "High"
+      },
+      {
+        "priority": 3,
+        "label": "Medium"
+      },
+      {
+        "priority": 4,
+        "label": "Low"
+      }
+    ]
+  }
+}

@@ -43,6 +43,7 @@ jest.mock("@deskpro/app-sdk", () => ({
   useDeskproAppTheme: () => ({ theme: lightTheme }),
   proxyFetch: async () => fetch,
   LoadingSpinner: () => <>Loading...</>,
+  DateInput: () => <>[DateInput]</>,
   useQueryWithClient: (
     queryKey: string[],
     queryFn: (client: IDeskproClient) => Promise<void>,

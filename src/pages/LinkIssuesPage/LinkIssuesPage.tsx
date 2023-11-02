@@ -33,6 +33,8 @@ const LinkIssuesPage: FC = () => {
 
   const onChangeSearchQuery = useDebouncedCallback(setSearchQuery, 1500);
 
+  const onNavigateToCreate = useCallback(() => navigate("/issues/create"), [navigate]);
+
   const onChangeSelectedIssue = useCallback((issue: Issue) => {
     let newSelectedIssues = cloneDeep(selectedIssues);
 
@@ -64,7 +66,7 @@ const LinkIssuesPage: FC = () => {
       .finally(() => setIsSubmitting(false));
   }, [client, asyncErrorHandler, selectedIssues, ticketId, navigate]);
 
-  useSetTitle("Linear");
+  useSetTitle("Link Issue");
 
   useRegisterElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
@@ -82,6 +84,7 @@ const LinkIssuesPage: FC = () => {
       onLinkIssues={onLinkIssues}
       isSubmitting={isSubmitting}
       selectedIssues={selectedIssues}
+      onNavigateToCreate={onNavigateToCreate}
       onChangeSearchQuery={onChangeSearchQuery}
       onChangeSelectedIssue={onChangeSelectedIssue}
     />
