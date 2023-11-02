@@ -13,6 +13,7 @@ const queryClient = new QueryClient({
 });
 
 const QueryKey = {
+  ISSUE: "issue",
   ISSUES: "issues",
   LINKED_ISSUES: "linkedIssues",
 }

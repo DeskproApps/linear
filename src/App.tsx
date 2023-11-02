@@ -8,11 +8,12 @@ import {
   useDeskproAppClient,
   useDeskproAppEvents,
 } from "@deskpro/app-sdk";
-import { useLogout } from "./hooks";
-import { isNavigatePayload } from "./utils";
+import { useLogout, useUnlinkIssue } from "./hooks";
+import { isNavigatePayload, isUnlinkPayload } from "./utils";
 import {
   HomePage,
   LoginPage,
+  ViewIssuePage,
   LoadingAppPage,
   LinkIssuesPage,
   AdminCallbackPage,
@@ -24,8 +25,10 @@ const App: FC = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { client } = useDeskproAppClient();
-  const { logout, isLoading } = useLogout();
+  const { logout, isLoading: isLoadingLogout } = useLogout();
+  const { unlink, isLoading: isLoadingUnlink } = useUnlinkIssue();
   const isAdmin = useMemo(() => pathname.includes("/admin/"), [pathname]);
+  const isLoading = [isLoadingLogout, isLoadingUnlink].some((isLoading) => isLoading);
 
   useDeskproElements(({ registerElement }) => {
     registerElement("refresh", { type: "refresh_button" });
@@ -35,6 +38,7 @@ const App: FC = () => {
     return match(payload.type)
       .with("changePage", () => isNavigatePayload(payload) && navigate(payload.path))
       .with("logout", logout)
+      .with("unlink", () => isUnlinkPayload(payload) && unlink(payload.issue))
       .run();
   }, 500);
 
@@ -60,6 +64,7 @@ const App: FC = () => {
         <Route path="/login" element={<LoginPage/>}/>)
         <Route path="/home" element={<HomePage/>}/>)
         <Route path="/issues/link" element={<LinkIssuesPage/>} />
+        <Route path="/issues/view/:issueId" element={<ViewIssuePage/>} />
         <Route index element={<LoadingAppPage/>} />
       </Routes>
       {!isAdmin && (<><br/><br/><br/></>)}

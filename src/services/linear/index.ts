@@ -3,3 +3,4 @@ export { getAccessTokenService } from "./getAccessTokenService";
 export { revokeAccessTokenService } from "./revokeAccessTokenService";
 export { getCurrentUserService } from "./getCurrentUserService";
 export { getIssuesService } from "./getIssuesService";
+export { getIssueService } from "./getIssueService";

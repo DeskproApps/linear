@@ -14,6 +14,7 @@ const useRegisterElements: UseRegisterElements = (fn, deps) => {
   useDeskproElements(({ deRegisterElement, registerElement }) => {
     deRegisterElement("refresh");
     deRegisterElement("home");
+    deRegisterElement("plus");
     deRegisterElement("menu");
 
     fn && fn({ deRegisterElement, registerElement });

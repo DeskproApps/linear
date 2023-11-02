@@ -1,4 +1,8 @@
-import type { Issue as IssueGQL, IssueLabel } from "./GraphQLSchemas";
+import type {
+  Issue as IssueGQL,
+  IssueLabel,
+  Comment,
+} from "./GraphQLSchemas";
 
 export type Response<T> = Promise<T>;
 
@@ -54,6 +58,10 @@ export type User = {
   },
 };
 
-export type Issue = Omit<IssueGQL, "labels"> & {
+export type IssueComment = Comment;
+
+export type Issue = Omit<IssueGQL, "labels"|"children"|"comments"> & {
   labels: IssueLabel[],
+  children: Issue[],
+  comments: IssueComment[],
 };
