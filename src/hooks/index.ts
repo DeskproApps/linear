@@ -5,3 +5,4 @@ export { useLogout } from "./useLogout";
 export { useRegisterElements } from "./useRegisterElements";
 export { useLinkedIssues } from "./useLinkedIssues";
 export { useUnlinkIssue } from "./useUnlinkIssue";
+export { useIssue } from "./useIssue";

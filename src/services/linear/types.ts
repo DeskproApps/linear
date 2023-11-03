@@ -6,6 +6,7 @@ import type {
   Issue as IssueGQL,
   IssueLabel as IssueLabelGQL,
   IssueCreateInput as IssueCreateInputGQL,
+  IssueUpdateInput as IssueUpdateInputGQL,
   IssuePriorityValue as IssuePriorityValueGQL,
 } from "./GraphQLSchemas";
 
@@ -84,7 +85,8 @@ export type Team = Omit<TeamGQL, "states"|"labels"|"members"> & {
   issuePriorityValues: IssuePriorityValue[],
 };
 
-export type IssueCreateInput = Pick<IssueCreateInputGQL,
+export type IssueEditInput = Pick<
+  IssueCreateInputGQL|IssueUpdateInputGQL,
   |"teamId"
   |"title"
   |"stateId"

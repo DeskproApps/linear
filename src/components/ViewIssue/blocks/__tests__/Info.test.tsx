@@ -16,17 +16,19 @@ describe("ViewIssue", () => {
     });
 
     test("render", async () => {
-      const { findByText } = renderInfo();
+      const { findByText, findAllByText } = renderInfo();
 
-      expect(await findByText(/\[Linear\] Link & Search issues/i)).toBeInTheDocument();
-      expect(await findByText(/DP-10/i)).toBeInTheDocument();
-      expect(await findByText(/Done/i)).toBeInTheDocument();
-      expect(await findByText(/Urgent/i)).toBeInTheDocument();
-      expect(await findByText(/05 Nov, 2023/i)).toBeInTheDocument();
-      expect(await findByText(/this is description/i)).toBeInTheDocument();
-      expect(await findByText(/ilia makarov/i)).toBeInTheDocument();
-      expect(await findByText(/Feature/i)).toBeInTheDocument();
-      expect(await findByText(/Improvement/i)).toBeInTheDocument();
+      expect(await findByText(/Control and Maintenance of the Wall's Defense/i)).toBeInTheDocument();
+      expect(await findByText(/Conduct a comprehensive review and enhancement of the Wall's defense mechanisms to ensure maximum preparedness against potential threats from the North\./i)).toBeInTheDocument();
+      expect(await findByText(/GOT-26/i)).toBeInTheDocument();
+      expect(await findByText(/In Progress/i)).toBeInTheDocument();
+      expect(await findByText(/High/i)).toBeInTheDocument();
+      expect(await findByText(/30 Nov, 2023/i)).toBeInTheDocument();
+      expect(await findByText(/Jon Snow/i)).toBeInTheDocument();
+      expect(await findByText(/Strategy/i)).toBeInTheDocument();
+      expect(await findByText(/White Walker/i)).toBeInTheDocument();
+      expect(await findAllByText(/Wall/i)).toHaveLength(3);
+      expect(await findAllByText(/Defense/i)).toHaveLength(3);
     });
   });
 });

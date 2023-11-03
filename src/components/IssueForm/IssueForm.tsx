@@ -23,6 +23,7 @@ import type {
 } from "../../services/linear/types";
 
 const IssueForm: FC<Props> = ({
+  issue,
   error,
   onSubmit,
   onCancel,
@@ -35,7 +36,7 @@ const IssueForm: FC<Props> = ({
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormValidationSchema>({
-    defaultValues: getInitValues(),
+    defaultValues: getInitValues(issue),
     resolver: zodResolver(validationSchema),
   });
   const {
@@ -60,6 +61,7 @@ const IssueForm: FC<Props> = ({
       <Label htmlFor="team" label="Team" required>
         <Select
           id="team"
+          disabled={isEditMode}
           initValue={watch("team")}
           options={teamOptions}
           error={has(errors, ["team", "message"])}

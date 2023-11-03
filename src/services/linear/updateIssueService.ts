@@ -4,13 +4,14 @@ import { gql, normalize } from "../../utils";
 import type { IDeskproClient } from "@deskpro/app-sdk";
 import type { Issue, IssueEditInput } from "./types";
 
-const createIssueService = (
+const updateIssueService = (
   client: IDeskproClient,
+  issueUpdateId: Issue["id"],
   input: IssueEditInput,
 ) => {
-  const query = gql({ input })`
-    mutation IssueCreate($input: IssueCreateInput!) {
-      issueCreate(input: $input) {
+  const query = gql({ issueUpdateId, input })`
+    mutation IssueUpdate($issueUpdateId: String!, $input: IssueUpdateInput!) {
+      issueUpdate(id: $issueUpdateId, input: $input) {
         issue {
           id identifier title description priority priorityLabel url dueDate
           state { id name }
@@ -21,9 +22,9 @@ const createIssueService = (
     }
   `;
 
-  return baseRequest<Issue>(client, { data: query })
+  return baseRequest(client, { data: query })
     .then(normalize)
-    .then((res) => get(res, ["data", "issueCreate", "issue"]));
+    .then((res) => get(res, ["data", "issueUpdate", "issue"]));
 };
 
-export { createIssueService };
+export { updateIssueService };

@@ -18,18 +18,21 @@ describe("DeskproTickets", () => {
   });
 
   test("render", async () => {
-      const { findByText } = renderIssueItem({
+      const { findByText, findAllByText } = renderIssueItem({
         issue: normalize(mockIssue.data.issue) as never,
       });
 
-      expect(await findByText(/\[Linear\] Link & Search issues/i)).toBeInTheDocument();
-      expect(await findByText(/DP-10/i)).toBeInTheDocument();
-      expect(await findByText(/Done/i)).toBeInTheDocument();
-      expect(await findByText(/Urgent/i)).toBeInTheDocument();
-      expect(await findByText(/05 Nov, 2023/i)).toBeInTheDocument();
-      expect(await findByText(/Urgent/i)).toBeInTheDocument();
-      expect(await findByText(/ilia makarov/i)).toBeInTheDocument();
-      expect(await findByText(/Feature/i)).toBeInTheDocument();
-      expect(await findByText(/Improvement/i)).toBeInTheDocument();
+      expect(await findByText(/Control and Maintenance of the Wall's Defense/i)).toBeInTheDocument();
+      expect(await findByText(/GOT-26/i)).toBeInTheDocument();
+      expect(await findByText(/In Progress/i)).toBeInTheDocument();
+      expect(await findByText(/High/i)).toBeInTheDocument();
+      expect(await findByText(/30 Nov, 2023/i)).toBeInTheDocument();
+      expect(await findByText(/Jon Snow/i)).toBeInTheDocument();
+
+      /* Labels */
+      expect(await findByText(/Strategy/i)).toBeInTheDocument();
+      expect(await findByText(/White Walker/i)).toBeInTheDocument();
+      expect(await findAllByText(/Wall/i)).toHaveLength(2);
+      expect(await findAllByText(/Defense/i)).toHaveLength(2);
   });
 });
