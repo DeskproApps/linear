@@ -61,7 +61,7 @@ const Info: FC<Props> = ({ issue }) => {
       <Property
         label="Labels"
         text={(
-          <Stack gap={6}>
+          <Stack gap={6} wrap="wrap">
             {!size(labels) ? "-" : labels.map((label) => (
               <IssueLabel
                 key={label.id}

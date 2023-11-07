@@ -62,6 +62,15 @@
       "isRequired": false,
       "isBackendOnly": false,
       "order": 60
+    },
+    "add_deskpro_label": {
+      "title": "Add \"Deskpro\" label when creating or linking issue",
+      "description": "Automatically adding a label to indicate in Linear that the issue is currently linked to a Deskpro ticket",
+      "type": "boolean",
+      "default": true,
+      "isRequired": false,
+      "isBackendOnly": false,
+      "order": 70
     }
   },
   "proxy": {

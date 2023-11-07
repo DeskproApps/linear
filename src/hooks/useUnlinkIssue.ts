@@ -8,6 +8,7 @@ import {
 } from "@deskpro/app-sdk";
 import { deleteEntityService } from "../services/deskpro";
 import { useLinkedAutoComment } from "./useLinkedAutoComment";
+import { useDeskproLabel } from "./useDeskproLabel";
 import { useReplyBox } from "./useReplyBox";
 import { useAsyncError } from "./useAsyncError";
 import type { TicketContext } from "../types";
@@ -23,6 +24,7 @@ const useUnlinkIssue = (): Result => {
   const { client } = useDeskproAppClient();
   const { context } = useDeskproLatestAppContext() as { context: TicketContext };
   const { addUnlinkComment } = useLinkedAutoComment();
+  const { removeDeskproLabel } = useDeskproLabel();
   const { deleteSelectionState } = useReplyBox();
   const { asyncErrorHandler } = useAsyncError();
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -38,6 +40,7 @@ const useUnlinkIssue = (): Result => {
     Promise.all([
       deleteEntityService(client, ticketId, issue.id),
       addUnlinkComment(issue.id),
+      removeDeskproLabel(issue),
       deleteSelectionState(issue.id, "note"),
       deleteSelectionState(issue.id, "email"),
     ])
@@ -46,7 +49,7 @@ const useUnlinkIssue = (): Result => {
         navigate("/home");
       })
       .catch(asyncErrorHandler);
-  }, [client, ticketId, navigate, asyncErrorHandler, addUnlinkComment, deleteSelectionState]);
+  }, [client, ticketId, navigate, asyncErrorHandler, addUnlinkComment, deleteSelectionState, removeDeskproLabel]);
 
   return { isLoading, unlink };
 };

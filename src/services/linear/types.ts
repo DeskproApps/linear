@@ -9,6 +9,7 @@ import type {
   IssueCreateInput as IssueCreateInputGQL,
   IssueUpdateInput as IssueUpdateInputGQL,
   IssuePriorityValue as IssuePriorityValueGQL,
+  IssueLabelCreateInput as IssueLabelCreateInputGQL,
 } from "./GraphQLSchemas";
 
 export type Response<T> = Promise<T>;
@@ -99,3 +100,5 @@ export type IssueEditInput = Pick<
   |"labelIds"
   |"assigneeId"
 >;
+
+export type IssueLabelInput = Pick<IssueLabelCreateInputGQL, "teamId"|"name"|"color">

@@ -9,3 +9,5 @@ export { updateIssueService } from "./updateIssueService";
 export { getTeamsService } from "./getTeamsService";
 export { getTeamMembersService } from "./getTeamMembersService";
 export { createIssueCommentService } from "./createIssueCommentService";
+export { getTeamLabelsService } from "./getTeamLabelsService";
+export { createIssueLabelService } from "./createIssueLabelService";

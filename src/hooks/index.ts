@@ -8,3 +8,4 @@ export { useUnlinkIssue } from "./useUnlinkIssue";
 export { useIssue } from "./useIssue";
 export { useLinkedAutoComment } from "./useLinkedAutoComment";
 export { useReplyBox, ReplyBoxProvider } from "./useReplyBox";
+export { useDeskproLabel } from "./useDeskproLabel";
