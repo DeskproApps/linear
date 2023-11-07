@@ -1,10 +1,10 @@
 import { useQueryWithClient } from "@deskpro/app-sdk";
-import { QueryKey } from "../../query";
-import { getIssueService } from "../../services/linear";
-import type { Maybe } from "../../types";
-import type { Issue } from "../../services/linear/types";
+import { QueryKey } from "../query";
+import { getIssueService } from "../services/linear";
+import type { Maybe } from "../types";
+import type { Issue } from "../services/linear/types";
 
-type UseIssue = (issueId: Maybe<Issue["id"]>) => {
+type UseIssue = (issueId?: Maybe<Issue["id"]>) => {
   isLoading: boolean,
   issue: Maybe<Issue>,
 };

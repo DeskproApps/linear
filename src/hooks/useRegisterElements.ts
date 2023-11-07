@@ -16,6 +16,7 @@ const useRegisterElements: UseRegisterElements = (fn, deps) => {
     deRegisterElement("home");
     deRegisterElement("plus");
     deRegisterElement("menu");
+    deRegisterElement("edit");
 
     fn && fn({ deRegisterElement, registerElement });
   }, [...(deps || [])]);

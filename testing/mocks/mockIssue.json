@@ -1,38 +1,52 @@
 {
   "data": {
     "issue": {
-      "id": "c75196e4-9beb-46c8-8987-e2a334fc50ff",
-      "identifier": "DP-10",
-      "title": "[Linear] Link & Search issues",
-      "description": "this is description",
-      "priority": 1,
-      "priorityLabel": "Urgent",
-      "url": "https://linear.app/deskpro-linear/issue/DP-10/[linear]-link-and-search-issues",
-      "dueDate": "2023-11-05",
+      "id": "4c214f9f-3567-425a-92da-60367e04c0a7",
+      "identifier": "GOT-26",
+      "title": "Control and Maintenance of the Wall's Defense",
+      "description": "Conduct a comprehensive review and enhancement of the Wall's defense mechanisms to ensure maximum preparedness against potential threats from the North.",
+      "priority": 2,
+      "priorityLabel": "High",
+      "url": "https://linear.app/deskpro-linear/issue/GOT-26/control-and-maintenance-of-the-walls-defense",
+      "dueDate": "2023-11-30",
       "state": {
-        "id": "9d6c2dba-eacf-4387-bcfe-48e7d88be311",
-        "name": "Done"
+        "id": "f3a56e47-0995-446c-ba16-95f2d04a4387",
+        "name": "In Progress"
       },
       "labels": {
         "nodes": [
           {
-            "color": "#BB87FC",
-            "id": "48eb80d7-a6e1-453d-a7ba-0241734eb48e",
-            "name": "Feature"
+            "color": "#f2994a",
+            "id": "663d62cb-e25e-4611-a58d-b2a2f63be740",
+            "name": "Strategy"
           },
           {
-            "color": "#4EA7FC",
-            "id": "3051411f-e7c7-4701-9bea-4278e5d11c0b",
-            "name": "Improvement"
+            "color": "#26b5ce",
+            "id": "a64df69d-0a12-40f9-baea-448c1bdbb08e",
+            "name": "White Walker"
+          },
+          {
+            "color": "#95a2b3",
+            "id": "8329f1c0-fb16-412a-8d0b-21bb618cbd9f",
+            "name": "Wall"
+          },
+          {
+            "color": "#eb5757",
+            "id": "6c627335-6c0f-44b4-a25d-f7fc25c3065c",
+            "name": "Defense"
           }
         ]
       },
       "assignee": {
         "id": "2ad5db8b-3e03-4c6a-87cb-04519ff7d257",
-        "displayName": "zpawn",
-        "avatarUrl": "https://public.linear.app/35b89a4c-5aca-493a-9a5a-03fd9df2bb83/a93e4e98-b3d9-4f2b-97c7-d3271da89389/5d4b2c6f-2610-44bf-8133-45813b7e8bb0",
-        "name": "ilia makarov",
+        "displayName": "jon.snow",
+        "avatarUrl": "https://public.linear.app/35b89a4c-5aca-493a-9a5a-03fd9df2bb83/17efd0c7-42e9-4e56-8e09-4d2dc1f5f5f8/00bea61b-bed5-4940-bd04-1f266041610b",
+        "name": "Jon Snow",
         "email": "ilia.makarov@me.com"
+      },
+      "team": {
+        "id": "4711a15c-8025-40d9-b0b1-2e17179a1d2a",
+        "name": "Game of Thrones"
       },
       "children": {
         "nodes": [

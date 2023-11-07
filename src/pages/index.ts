@@ -5,3 +5,4 @@ export { HomePage } from "./HomePage";
 export { LinkIssuesPage } from "./LinkIssuesPage";
 export { ViewIssuePage } from "./ViewIssuePage";
 export { CreateIssuePage } from "./CreateIssuePage";
+export { EditIssuePage } from "./EditIssuePage";

@@ -5,5 +5,6 @@ export { getCurrentUserService } from "./getCurrentUserService";
 export { getIssuesService } from "./getIssuesService";
 export { getIssueService } from "./getIssueService";
 export { createIssueService } from "./createIssueService";
+export { updateIssueService } from "./updateIssueService";
 export { getTeamsService } from "./getTeamsService";
 export { getTeamMembersService } from "./getTeamMembersService";

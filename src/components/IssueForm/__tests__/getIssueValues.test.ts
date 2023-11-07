@@ -13,10 +13,13 @@ describe("IssueForm", () => {
         priority: 0,
         description: "",
         labelIds: [],
+        assigneeId: null,
+        dueDate: null,
+        stateId: null,
       });
     });
 
-    test("should return full card values", () => {
+    test("should return full issue values", () => {
       expect(getIssueValues(mockValues as never)).toStrictEqual({
         teamId: "team-001",
         title: "Reinforcement of the Shadow Tower",
@@ -24,7 +27,7 @@ describe("IssueForm", () => {
         description: "The Reinforcement of the Shadow Tower beyond the Wall.",
         labelIds: ["label-001", "label-002", "label-003"],
         stateId: "status-001",
-        dueDate: "2023-12-30T22:00:00.000Z",
+        dueDate: "2023-12-30",
         assigneeId: "user-001",
       });
     });
