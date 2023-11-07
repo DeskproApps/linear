@@ -6,10 +6,11 @@ import type { Maybe } from "../../types";
 import type { Issue } from "../../services/linear/types";
 
 type Props = {
-  issue: Maybe<Issue>;
+  issue: Maybe<Issue>,
+  onNavigateToAddComment: () => void,
 };
 
-const ViewIssue: FC<Props> = ({ issue }) => {
+const ViewIssue: FC<Props> = ({ issue, onNavigateToAddComment }) => {
   return (
     <>
       <Container>
@@ -25,7 +26,10 @@ const ViewIssue: FC<Props> = ({ issue }) => {
       <HorizontalDivider/>
 
       <Container>
-        <Comments comments={issue?.comments || []}/>
+        <Comments
+          comments={issue?.comments || []}
+          onNavigateToAddComment={onNavigateToAddComment}
+        />
       </Container>
     </>
   );
