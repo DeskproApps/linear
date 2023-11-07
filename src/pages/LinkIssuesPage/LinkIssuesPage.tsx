@@ -11,6 +11,7 @@ import {
 import { setEntityService } from "../../services/deskpro";
 import {
   useSetTitle,
+  useReplyBox,
   useAsyncError,
   useRegisterElements,
   useLinkedAutoComment,
@@ -26,6 +27,7 @@ const LinkIssuesPage: FC = () => {
   const { client } = useDeskproAppClient();
   const { context } = useDeskproLatestAppContext() as { context: TicketContext };
   const { addLinkComment } = useLinkedAutoComment();
+  const { setSelectionState } = useReplyBox();
   const { asyncErrorHandler } = useAsyncError();
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -63,11 +65,13 @@ const LinkIssuesPage: FC = () => {
     return Promise.all([
       ...selectedIssues.map((issue) => setEntityService(client, ticketId, issue.id)),
       ...selectedIssues.map((issue) => addLinkComment(issue.id)),
+      ...selectedIssues.map((issue) => setSelectionState(issue.id, true, "email")),
+      ...selectedIssues.map((issue) => setSelectionState(issue.id, true, "note")),
     ])
       .then(() => navigate("/home"))
       .catch(asyncErrorHandler)
       .finally(() => setIsSubmitting(false));
-  }, [client, asyncErrorHandler, selectedIssues, ticketId, navigate, addLinkComment]);
+  }, [client, asyncErrorHandler, selectedIssues, ticketId, navigate, addLinkComment, setSelectionState]);
 
   useSetTitle("Link Issue");
 
