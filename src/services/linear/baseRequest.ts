@@ -1,3 +1,4 @@
+import has from "lodash/has";
 import isEmpty from "lodash/isEmpty";
 import isString from "lodash";
 import { proxyFetch } from "@deskpro/app-sdk";
@@ -53,10 +54,21 @@ const baseRequest: Request = async (client, {
     });
   }
 
+  let result;
+
   try {
-    return await res.json();
+    result = await res.json();
   } catch (e) {
     return {};
+  }
+
+  if (has(result, ["errors"])) {
+    throw new LinearError({
+      data: result,
+      status: res.status,
+    });
+  } else {
+    return result;
   }
 };
 

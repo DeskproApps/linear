@@ -4,6 +4,7 @@ import type {
   Team as TeamGQL,
   User as UserSQL,
   Issue as IssueGQL,
+  CommentCreateInput,
   IssueLabel as IssueLabelGQL,
   IssueCreateInput as IssueCreateInputGQL,
   IssueUpdateInput as IssueUpdateInputGQL,
@@ -65,6 +66,8 @@ export type User = {
 };
 
 export type IssueComment = Comment;
+
+export type IssueCommentCreateInput = Pick<CommentCreateInput, "body"|"issueId">;
 
 export type IssuePriorityValue = IssuePriorityValueGQL;
 

@@ -8,3 +8,4 @@ export { createIssueService } from "./createIssueService";
 export { updateIssueService } from "./updateIssueService";
 export { getTeamsService } from "./getTeamsService";
 export { getTeamMembersService } from "./getTeamMembersService";
+export { createIssueCommentService } from "./createIssueCommentService";

@@ -8,12 +8,16 @@ import type { IssueComment } from "../../../services/linear/types";
 
 export type Props = {
   comments: IssueComment[],
+  onNavigateToAddComment: () => void,
 };
 
-const Comments: FC<Props> = ({ comments }) => {
+const Comments: FC<Props> = ({ comments, onNavigateToAddComment }) => {
   return (
     <>
-      <Title title={`Comments (${size(comments)})`}/>
+      <Title
+        title={`Comments (${size(comments)})`}
+        onClick={onNavigateToAddComment}
+      />
 
       {comments.map(({ id, user, createdAt, body }) => (
         <Fragment key={id}>
