@@ -14,7 +14,7 @@ const updateIssueService = (
       issueUpdate(id: $issueUpdateId, input: $input) {
         issue {
           id identifier title description priority priorityLabel url dueDate
-          state { id name }
+          state { type name id color position }
           labels { nodes { color id name } }
           assignee { id displayName avatarUrl name email }
         }

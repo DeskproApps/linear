@@ -4,12 +4,13 @@ import map from "lodash/map";
 import size from "lodash/size";
 import { z } from "zod";
 import { DATE_ON } from "../../constants";
-import { getOption } from "../../utils";
+import { getOption, sortStates } from "../../utils";
 import { parse, format } from "../../utils/date";
-import { IssueLabel, Member } from "../common";
+import { IssueLabel, Member, Status } from "../common";
 import type { Maybe } from "../../types";
 import type {
   Issue,
+  WorkflowState,
   IssueEditInput,
   IssuePriorityValue,
   Member as MemberType,
@@ -101,11 +102,24 @@ const getAssigneeOptions = (members?: MemberType[]) => {
   });
 };
 
+const getStatusOptions = (states?: WorkflowState[]) => {
+  if (!Array.isArray(states) || !size(states)) {
+    return [];
+  }
+
+  return sortStates(states).map((state) => getOption(
+    state.id,
+    createElement(Status, { state }),
+    state.name,
+  ));
+};
+
 export {
   getInitValues,
   getIssueValues,
   getLabelOptions,
   validationSchema,
+  getStatusOptions,
   getPriorityOptions,
   getAssigneeOptions,
 };

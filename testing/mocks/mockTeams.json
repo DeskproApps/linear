@@ -53,6 +53,11 @@
           "labels": {
             "nodes": [
               {
+                "id": "0688692c-56ec-4626-b590-70c80179c443",
+                "name": "Deskpro",
+                "color": "#3A8DDE"
+              },
+              {
                 "id": "ac0db0f5-38d5-4289-be46-149a36a60b1f",
                 "name": "White Walker",
                 "color": "#26b5ce"
@@ -92,6 +97,83 @@
           "icon": "Crown",
           "states": {
             "nodes": [
+              {
+                "type": "completed",
+                "name": "Released",
+                "id": "0d3be345-6793-4ba2-8240-019e6a1030d3",
+                "color": "#4cb782",
+                "position": 18222.72
+              },
+              {
+                "type": "completed",
+                "name": "Acceptance",
+                "id": "52a72c6f-4746-436d-89e7-e79652b6d9a3",
+                "color": "#f2994a",
+                "position": -514.74
+              },
+              {
+                "type": "started",
+                "name": "Blocked",
+                "id": "ff1576a8-2527-42ac-9df6-8fb2e010d539",
+                "color": "#eb5757",
+                "position": 16093.42
+              },
+              {
+                "type": "started",
+                "name": "Review",
+                "id": "0342d9fe-512c-4f55-9fa7-d98784d4d780",
+                "color": "#26b5ce",
+                "position": 15067.42
+              },
+              {
+                "type": "unstarted",
+                "name": "Specified",
+                "id": "22dd74dc-97d4-4c43-b100-507db6fc4936",
+                "color": "#f2c94c",
+                "position": 14165.13
+              },
+              {
+                "type": "backlog",
+                "name": "Idea",
+                "id": "af35bb70-c6fe-495d-aa53-c6804fc6faa4",
+                "color": "#26b5ce",
+                "position": 13113.09
+              },
+              {
+                "type": "canceled",
+                "name": "Discarded",
+                "id": "2f410830-6fec-4e79-95dd-e842c96eae63",
+                "color": "#f7c8c1",
+                "position": 12072.72
+              },
+              {
+                "type": "completed",
+                "name": "Tested",
+                "id": "a5902d29-7164-4076-a9de-67ed3874d4d8",
+                "color": "#f2c94c",
+                "position": -999.01
+              },
+              {
+                "type": "started",
+                "name": "Started",
+                "id": "b26964e3-e4d5-4ba3-b01c-915c1047503f",
+                "color": "#4cb782",
+                "position": 10016.45
+              },
+              {
+                "type": "unstarted",
+                "name": "Prioritized",
+                "id": "0c1f08af-2350-44d6-a974-b4dd58c34e5e",
+                "color": "#26b5ce",
+                "position": 9115.8
+              },
+              {
+                "type": "backlog",
+                "name": "New",
+                "id": "b5a0e23f-7850-4057-a0f2-1a3bc0a01799",
+                "color": "#5e6ad2",
+                "position": 7043.81
+              },
               {
                 "type": "started",
                 "name": "In Progress",
@@ -142,6 +224,11 @@
           },
           "labels": {
             "nodes": [
+              {
+                "id": "6bbca1fa-4d0c-4260-b98c-4aee73137a2b",
+                "name": "Deskpro",
+                "color": "#3A8DDE"
+              },
               {
                 "id": "663d62cb-e25e-4611-a58d-b2a2f63be740",
                 "name": "Strategy",

@@ -9,6 +9,7 @@ import { QueryKey } from "../../query";
 import { getOptions } from "../../utils";
 import {
   getLabelOptions,
+  getStatusOptions,
   getPriorityOptions,
   getAssigneeOptions,
 } from "./utils";
@@ -50,7 +51,7 @@ const useFormDeps: UseFormDeps = (teamId) => {
   return {
     isLoading: [teams].some(({ isLoading }) => isLoading),
     teamOptions: useMemo(() => getOptions(teams.data), [teams]),
-    statusOptions: useMemo(() => getOptions(statuses), [statuses]),
+    statusOptions: useMemo(() => getStatusOptions(statuses), [statuses]),
     priorityOptions: useMemo(() => getPriorityOptions(priorities), [priorities]),
     labelOptions: useMemo(() => getLabelOptions(labels), [labels]),
     assigneeOptions: useMemo(() => getAssigneeOptions(assignees.data), [assignees]),

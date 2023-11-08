@@ -12,7 +12,7 @@ const getIssueService = (
     query Issue($issueId: String!) {
       issue(id: $issueId) {
         id identifier title description priority priorityLabel url dueDate
-        state { id name }
+        state { id name type color position }
         labels { nodes { color id name } }
         assignee { id displayName avatarUrl name email }
         team { id name }

@@ -6,6 +6,7 @@ import { Title, Property } from "@deskpro/app-sdk";
 import { format, parse } from "../../../utils/date";
 import {
   Member,
+  Status,
   Markdown,
   IssueLabel,
   LinearLogo,
@@ -41,10 +42,21 @@ const Info: FC<Props> = ({ issue }) => {
           <Markdown text={get(issue, ["description"], "-") || "-"}/>
         )}
       />
-      <Property label="Issue ID" text={get(issue, ["identifier"])}/>
-      <Property label="Status" text={get(issue, ["state", "name"])}/>
-      <Property label="Priority" text={get(issue, ["priorityLabel"])}/>
-      <Property label="Due Date" text={format(parse(get(issue, ["dueDate"])))}/>
+      <Property
+        label="Issue ID"
+        text={get(issue, ["identifier"])}
+      />
+      <Property
+        label="Status"
+        text={<Status state={get(issue, ["state"])}/>}/>
+      <Property
+        label="Priority"
+        text={get(issue, ["priorityLabel"])}
+      />
+      <Property
+        label="Due Date"
+        text={format(parse(get(issue, ["dueDate"])))}
+      />
       <Property
         label="Deskpro Tickets"
         text={<DeskproTickets<Issue["id"]> entityId={get(issue, ["id"])}/>}

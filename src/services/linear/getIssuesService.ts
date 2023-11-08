@@ -26,7 +26,7 @@ const getIssuesService = (client: IDeskproClient, params?: Params) => {
       issues(filter: $filter) {
         nodes {
           id identifier title description priority priorityLabel url dueDate
-          state { id name }
+          state { id name type color position }
           team { id name }
           labels { nodes { color id name } }
           assignee { id displayName avatarUrl name email }

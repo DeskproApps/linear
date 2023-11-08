@@ -9,3 +9,4 @@ export { normalize } from "./normalize";
 export { addBlankTargetToLinks } from "./addBlankTargetToLinks";
 export { findDeskproLabel } from "./findDeskproLabel";
 export { getEntityMetadata } from "./getEntityMetadata";
+export { sortStates } from "./sortStates";

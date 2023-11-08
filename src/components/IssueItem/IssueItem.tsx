@@ -4,7 +4,7 @@ import isEmpty from "lodash/isEmpty";
 import { Stack } from "@deskpro/deskpro-ui";
 import { Title, Link, Property, TwoProperties } from "@deskpro/app-sdk";
 import { parse, format } from "../../utils/date";
-import { LinearLogo, DeskproTickets, IssueLabel, Member } from "../common";
+import { LinearLogo, DeskproTickets, IssueLabel, Member, Status } from "../common";
 import type { FC, MouseEventHandler } from "react";
 import type { Issue } from "../../services/linear/types";
 
@@ -41,7 +41,7 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
         leftLabel="Issue ID"
         leftText={get(issue, ["identifier"])}
         rightLabel="Status"
-        rightText={get(issue, ["state", "name"])}
+        rightText={<Status state={get(issue, ["state"])}/>}
       />
       <TwoProperties
         leftLabel="Priority"
