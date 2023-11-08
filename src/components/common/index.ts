@@ -15,3 +15,4 @@ export { Label } from "./Label";
 export { TextArea } from "./TextArea";
 export { Navigation } from "./Navigation";
 export { Status } from "./Status";
+export { Priority } from "./Priority";

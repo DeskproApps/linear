@@ -8,6 +8,7 @@ import {
   Member,
   Status,
   Markdown,
+  Priority,
   IssueLabel,
   LinearLogo,
   DeskproTickets,
@@ -51,7 +52,12 @@ const Info: FC<Props> = ({ issue }) => {
         text={<Status state={get(issue, ["state"])}/>}/>
       <Property
         label="Priority"
-        text={get(issue, ["priorityLabel"])}
+        text={(
+          <Priority
+            priority={get(issue, ["priority"])}
+            priorityLabel={get(issue, ["priorityLabel"])}
+          />
+        )}
       />
       <Property
         label="Due Date"

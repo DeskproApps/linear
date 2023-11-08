@@ -4,7 +4,13 @@ import isEmpty from "lodash/isEmpty";
 import { Stack } from "@deskpro/deskpro-ui";
 import { Title, Link, Property, TwoProperties } from "@deskpro/app-sdk";
 import { parse, format } from "../../utils/date";
-import { LinearLogo, DeskproTickets, IssueLabel, Member, Status } from "../common";
+import {
+  Member,
+  Status,
+  IssueLabel,
+  LinearLogo,
+  DeskproTickets, Priority,
+} from "../common";
 import type { FC, MouseEventHandler } from "react";
 import type { Issue } from "../../services/linear/types";
 
@@ -45,7 +51,12 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
       />
       <TwoProperties
         leftLabel="Priority"
-        leftText={get(issue, ["priorityLabel"])}
+        leftText={(
+          <Priority
+            priority={get(issue, ["priority"])}
+            priorityLabel={get(issue, ["priorityLabel"])}
+          />
+        )}
         rightLabel="Due Date"
         rightText={format(parse(get(issue, ["dueDate"])))}
       />

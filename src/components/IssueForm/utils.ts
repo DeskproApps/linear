@@ -2,11 +2,12 @@ import { createElement } from "react";
 import get from "lodash/get";
 import map from "lodash/map";
 import size from "lodash/size";
+import sortBy from "lodash/sortBy";
 import { z } from "zod";
 import { DATE_ON } from "../../constants";
 import { getOption, sortStates } from "../../utils";
 import { parse, format } from "../../utils/date";
-import { IssueLabel, Member, Status } from "../common";
+import { IssueLabel, Member, Status, Priority } from "../common";
 import type { Maybe } from "../../types";
 import type {
   Issue,
@@ -63,8 +64,11 @@ const getPriorityOptions = (priorities?: IssuePriorityValue[]) => {
     return [];
   }
 
-  return priorities.map((priority) => {
-    return getOption(priority.priority, priority.label);
+  return sortBy(priorities, ["priority"]).map((priority) => {
+    return getOption(priority.priority, createElement(Priority, {
+      priority: priority.priority,
+      priorityLabel: priority.label,
+    }));
   });
 };
 
