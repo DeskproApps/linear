@@ -18,6 +18,7 @@ import {
   useLinkedAutoComment,
 } from "../../hooks";
 import { useSearchIssues } from "./hooks";
+import { getEntityMetadata } from "../../utils";
 import { LinkIssues } from "../../components";
 import type { FC } from "react";
 import type { TicketContext } from "../../types";
@@ -65,7 +66,7 @@ const LinkIssuesPage: FC = () => {
     setIsSubmitting(true);
 
     return Promise.all([
-      ...selectedIssues.map((issue) => setEntityService(client, ticketId, issue.id)),
+      ...selectedIssues.map((issue) => setEntityService(client, ticketId, issue.id, getEntityMetadata(issue))),
       ...selectedIssues.map((issue) => addLinkComment(issue.id)),
       ...selectedIssues.map((issue) => addDeskproLabel(issue)),
       ...selectedIssues.map((issue) => setSelectionState(issue.id, true, "email")),

@@ -17,6 +17,7 @@ import {
 import { setEntityService } from "../../services/deskpro";
 import { createIssueService } from "../../services/linear";
 import { DEFAULT_ERROR } from "../../constants";
+import { getEntityMetadata } from "../../utils";
 import { getIssueValues } from "../../components/IssueForm";
 import { CreateIssue } from "../../components";
 import type { FC } from "react";
@@ -46,7 +47,7 @@ const CreateIssuePage: FC = () => {
 
     return createIssueService(client, getIssueValues(values))
       .then((issue) => Promise.all([
-        setEntityService(client, ticketId, issue.id),
+        setEntityService(client, ticketId, issue.id, getEntityMetadata(issue)),
         addLinkComment(issue.id),
         setSelectionState(issue.id, true, "email"),
         setSelectionState(issue.id, true, "note"),

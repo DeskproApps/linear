@@ -1,7 +1,7 @@
 import type { To, ParamKeyValuePair } from "react-router-dom";
 import type { DropdownValueType } from "@deskpro/deskpro-ui";
 import type { Context, IDeskproClient, V2ProxyRequestInitBody } from "@deskpro/app-sdk";
-import type { Response, Issue } from "./services/linear/types";
+import type { Response, Issue, Team, Member } from "./services/linear/types";
 
 /** Common types */
 export type Maybe<T> = T | undefined | null;
@@ -65,4 +65,12 @@ export type EventPayload =
   | UnlinkPayload
 ;
 
-/** Entities */
+export type EntityMetadata = {
+  id: Issue["id"],
+  identifier: Issue["identifier"],
+  title: Issue["title"],
+  status: Issue["state"]["name"],
+  priority: Issue["priorityLabel"],
+  team: Team["name"],
+  assignee?: Pick<Member, "name"|"displayName"|"email">,
+};

@@ -8,3 +8,4 @@ export { gql } from "./gql";
 export { normalize } from "./normalize";
 export { addBlankTargetToLinks } from "./addBlankTargetToLinks";
 export { findDeskproLabel } from "./findDeskproLabel";
+export { getEntityMetadata } from "./getEntityMetadata";
