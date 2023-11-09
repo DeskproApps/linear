@@ -1,14 +1,14 @@
 import { useMemo } from "react";
 import get from "lodash/get";
 import find from "lodash/find";
-import sortBy from "lodash/sortBy";
 import isEmpty from "lodash/isEmpty";
 import { useQueryWithClient } from "@deskpro/app-sdk";
 import { getTeamsService, getTeamMembersService } from "../../services/linear";
 import { QueryKey } from "../../query";
-import { getOptions } from "../../utils";
 import {
+  getTeamOptions,
   getLabelOptions,
+  getStatusOptions,
   getPriorityOptions,
   getAssigneeOptions,
 } from "./utils";
@@ -41,7 +41,7 @@ const useFormDeps: UseFormDeps = (teamId) => {
     const team = find(teams.data, { id: teamId });
 
     return {
-      statuses: sortBy(get(team, ["states"], []) || [], ["position"]),
+      statuses: get(team, ["states"], []) || [],
       priorities: get(team, ["issuePriorityValues"], []) || [],
       labels: get(team, ["labels"], []) || [],
     };
@@ -49,8 +49,8 @@ const useFormDeps: UseFormDeps = (teamId) => {
 
   return {
     isLoading: [teams].some(({ isLoading }) => isLoading),
-    teamOptions: useMemo(() => getOptions(teams.data), [teams]),
-    statusOptions: useMemo(() => getOptions(statuses), [statuses]),
+    teamOptions: useMemo(() => getTeamOptions(teams.data), [teams]),
+    statusOptions: useMemo(() => getStatusOptions(statuses), [statuses]),
     priorityOptions: useMemo(() => getPriorityOptions(priorities), [priorities]),
     labelOptions: useMemo(() => getLabelOptions(labels), [labels]),
     assigneeOptions: useMemo(() => getAssigneeOptions(assignees.data), [assignees]),

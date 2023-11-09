@@ -27,7 +27,22 @@ describe("gql", () => {
     expect(query).toBe(result);
   });
 
-  test.todo("work with fragments");
+  test("work with fragments", () => {
+    const userFragment = `fragment userFragment on User { id name email }`;
+
+    const query = gql({ issueId: "001" })`
+      query Issue($issueId: String!) {
+        issue(id: $issueId) {
+          ...userInfo
+        }
+      }
+      ${userFragment}
+    `;
+
+    const result =  "{\"query\":\"query Issue($issueId: String!) { issue(id: $issueId) { ...userInfo } } fragment userFragment on User { id name email }\",\"variables\":{\"issueId\":\"001\"}}";
+
+    expect(query).toBe(result);
+  });
 
   test.todo("pass wrong values");
 });

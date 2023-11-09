@@ -1,6 +1,6 @@
 import type {
   Comment,
-  WorkflowState,
+  WorkflowState as WorkflowStateGQL,
   Team as TeamGQL,
   User as UserSQL,
   Issue as IssueGQL,
@@ -76,11 +76,14 @@ export type IssueLabel = IssueLabelGQL;
 
 export type Member = UserSQL;
 
-export type Issue = Omit<IssueGQL, "labels"|"children"|"comments"> & {
+export type Issue = Omit<IssueGQL, "labels"|"children"|"comments"|"team"> & {
   labels: IssueLabel[],
   children: Issue[],
   comments: IssueComment[],
+  team: Team,
 };
+
+export type WorkflowState = WorkflowStateGQL;
 
 export type Team = Omit<TeamGQL, "states"|"labels"|"members"> & {
   states: WorkflowState[],

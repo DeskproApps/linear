@@ -18,6 +18,7 @@ const QueryKey = {
   LINKED_ISSUES: "linkedIssues",
   TEAMS: "teams",
   TEAM_MEMBERS: "teamMembers",
+  TEAM_STATES: "teamStates",
 }
 
 export { queryClient, QueryKey };
