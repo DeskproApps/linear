@@ -1,5 +1,6 @@
 import get from "lodash/get";
 import { baseRequest } from "./baseRequest";
+import { userFragment, commentFragment } from "./fragments";
 import { gql, normalize } from "../../utils";
 import type { IDeskproClient } from "@deskpro/app-sdk";
 import type { IssueCommentCreateInput, IssueComment } from "./types";
@@ -12,11 +13,13 @@ const createIssueCommentService = (
     mutation CommentCreate($input: CommentCreateInput!) {
       commentCreate(input: $input) {
         comment {
-          id body createdAt
-          user { id displayName avatarUrl name email }
+          ...commentInfo
+          user { ...userInfo }
         }
       }
     }
+    ${userFragment}
+    ${commentFragment}
   `;
 
   return baseRequest<IssueComment>(client, { data: query })

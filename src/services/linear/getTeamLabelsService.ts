@@ -1,5 +1,6 @@
 import get from "lodash/get";
 import { baseRequest } from "./baseRequest";
+import { labelFragment } from "./fragments";
 import { gql, normalize } from "../../utils";
 import type { IDeskproClient } from "@deskpro/app-sdk";
 import type { Team, IssueLabel } from "./types";
@@ -12,10 +13,11 @@ const getTeamLabelsService = (
     query Team($teamId: String!) {
       team(id: $teamId) {
         labels {
-          nodes { id name icon color }
+          nodes { ...labelInfo }
         }
       }
     }
+    ${labelFragment}
   `;
 
   return baseRequest<IssueLabel[]>(client, { data: query })
