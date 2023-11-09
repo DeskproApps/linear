@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import get from "lodash/get";
 import find from "lodash/find";
-import sortBy from "lodash/sortBy";
 import isEmpty from "lodash/isEmpty";
 import { useQueryWithClient } from "@deskpro/app-sdk";
 import { getTeamsService, getTeamMembersService } from "../../services/linear";
@@ -42,7 +41,7 @@ const useFormDeps: UseFormDeps = (teamId) => {
     const team = find(teams.data, { id: teamId });
 
     return {
-      statuses: sortBy(get(team, ["states"], []) || [], ["position"]),
+      statuses: get(team, ["states"], []) || [],
       priorities: get(team, ["issuePriorityValues"], []) || [],
       labels: get(team, ["labels"], []) || [],
     };

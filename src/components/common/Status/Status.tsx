@@ -8,11 +8,10 @@ import {
   Completed,
 } from "./icons";
 import type { FC } from "react";
-import type { Maybe } from "../../../types";
 import type { WorkflowState } from "../../../services/linear/types";
 
 type Props = {
-  state?: Maybe<WorkflowState>,
+  state?: Partial<WorkflowState>,
 };
 
 const Status: FC<Props> = ({ state }) => {
@@ -35,7 +34,7 @@ const Status: FC<Props> = ({ state }) => {
   return (
     <Stack align="center" gap={6}>
       {icon && <Icon icon={icon}/>}
-      <P5>{name}</P5>
+      {name && <P5>{name}</P5>}
     </Stack>
   );
 };

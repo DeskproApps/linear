@@ -16,7 +16,7 @@
     "types": "graphql-codegen"
   },
   "dependencies": {
-    "@deskpro/app-sdk": "3.0.10",
+    "@deskpro/app-sdk": "3.0.11",
     "@deskpro/deskpro-ui": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
