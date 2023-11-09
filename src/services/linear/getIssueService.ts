@@ -15,7 +15,7 @@ const getIssueService = (
         state { id name type color position }
         labels { nodes { color id name } }
         assignee { id displayName avatarUrl name email }
-        team { id name }
+        team { id name icon color }
         children {
           nodes { id identifier title state { id name type } }
         }

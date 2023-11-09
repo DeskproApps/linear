@@ -16,3 +16,4 @@ export { TextArea } from "./TextArea";
 export { Navigation } from "./Navigation";
 export { Status } from "./Status";
 export { Priority } from "./Priority";
+export { Team } from "./Team";

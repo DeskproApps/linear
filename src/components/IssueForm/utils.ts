@@ -7,9 +7,10 @@ import { z } from "zod";
 import { DATE_ON } from "../../constants";
 import { getOption, sortStates } from "../../utils";
 import { parse, format } from "../../utils/date";
-import { IssueLabel, Member, Status, Priority } from "../common";
+import { Team, IssueLabel, Member, Status, Priority } from "../common";
 import type { Maybe } from "../../types";
 import type {
+  Team as TeamType,
   Issue,
   WorkflowState,
   IssueEditInput,
@@ -72,6 +73,18 @@ const getPriorityOptions = (priorities?: IssuePriorityValue[]) => {
   });
 };
 
+const getTeamOptions = (teams?: TeamType[]) => {
+  if (!Array.isArray(teams) || !size(teams)) {
+    return [];
+  }
+
+  return teams.map((team: TeamType) => getOption(
+    team.id,
+    createElement(Team, { team }),
+    team.name,
+  ));
+};
+
 const getLabelOptions = (labels?: IssueLabelType[]) => {
   if (!Array.isArray(labels) || !size(labels)) {
     return [];
@@ -121,6 +134,7 @@ const getStatusOptions = (states?: WorkflowState[]) => {
 export {
   getInitValues,
   getIssueValues,
+  getTeamOptions,
   getLabelOptions,
   validationSchema,
   getStatusOptions,

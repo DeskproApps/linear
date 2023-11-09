@@ -76,10 +76,11 @@ export type IssueLabel = IssueLabelGQL;
 
 export type Member = UserSQL;
 
-export type Issue = Omit<IssueGQL, "labels"|"children"|"comments"> & {
+export type Issue = Omit<IssueGQL, "labels"|"children"|"comments"|"team"> & {
   labels: IssueLabel[],
   children: Issue[],
   comments: IssueComment[],
+  team: Team,
 };
 
 export type WorkflowState = WorkflowStateGQL;

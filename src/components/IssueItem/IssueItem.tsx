@@ -5,11 +5,13 @@ import { Stack } from "@deskpro/deskpro-ui";
 import { Title, Link, Property, TwoProperties } from "@deskpro/app-sdk";
 import { parse, format } from "../../utils/date";
 import {
+  Team,
   Member,
   Status,
+  Priority,
   IssueLabel,
   LinearLogo,
-  DeskproTickets, Priority,
+  DeskproTickets,
 } from "../common";
 import type { FC, MouseEventHandler } from "react";
 import type { Issue } from "../../services/linear/types";
@@ -44,25 +46,27 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
         link={get(issue, ["url"])}
       />
       <TwoProperties
-        leftLabel="Issue ID"
-        leftText={get(issue, ["identifier"])}
-        rightLabel="Status"
-        rightText={<Status state={get(issue, ["state"])}/>}
+        leftLabel="Team"
+        leftText={<Team team={get(issue, ["team"])}/>}
+        rightLabel="Issue ID"
+        rightText={get(issue, ["identifier"])}
       />
       <TwoProperties
-        leftLabel="Priority"
-        leftText={(
+        leftLabel="Status"
+        leftText={<Status state={get(issue, ["state"])}/>}
+        rightLabel="Priority"
+        rightText={(
           <Priority
             priority={get(issue, ["priority"])}
             priorityLabel={get(issue, ["priorityLabel"])}
           />
         )}
-        rightLabel="Due Date"
-        rightText={format(parse(get(issue, ["dueDate"])))}
       />
-      <Property
-        label="Deskpro Tickets"
-        text={<DeskproTickets<Issue["id"]> entityId={get(issue, ["id"])}/>}
+      <TwoProperties
+        leftLabel="Due Date"
+        leftText={format(parse(get(issue, ["dueDate"])))}
+        rightLabel="Deskpro Tickets"
+        rightText={<DeskproTickets<Issue["id"]> entityId={get(issue, ["id"])}/>}
       />
       {assigneeName && (
         <Property

@@ -5,6 +5,7 @@ import { Stack } from "@deskpro/deskpro-ui";
 import { Title, Property } from "@deskpro/app-sdk";
 import { format, parse } from "../../../utils/date";
 import {
+  Team,
   Member,
   Status,
   Markdown,
@@ -42,6 +43,10 @@ const Info: FC<Props> = ({ issue }) => {
         text={(
           <Markdown text={get(issue, ["description"], "-") || "-"}/>
         )}
+      />
+      <Property
+        label="Team"
+        text={<Team team={get(issue, ["team"])}/>}
       />
       <Property
         label="Issue ID"

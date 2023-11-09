@@ -6,8 +6,8 @@ import isEmpty from "lodash/isEmpty";
 import { useQueryWithClient } from "@deskpro/app-sdk";
 import { getTeamsService, getTeamMembersService } from "../../services/linear";
 import { QueryKey } from "../../query";
-import { getOptions } from "../../utils";
 import {
+  getTeamOptions,
   getLabelOptions,
   getStatusOptions,
   getPriorityOptions,
@@ -50,7 +50,7 @@ const useFormDeps: UseFormDeps = (teamId) => {
 
   return {
     isLoading: [teams].some(({ isLoading }) => isLoading),
-    teamOptions: useMemo(() => getOptions(teams.data), [teams]),
+    teamOptions: useMemo(() => getTeamOptions(teams.data), [teams]),
     statusOptions: useMemo(() => getStatusOptions(statuses), [statuses]),
     priorityOptions: useMemo(() => getPriorityOptions(priorities), [priorities]),
     labelOptions: useMemo(() => getLabelOptions(labels), [labels]),

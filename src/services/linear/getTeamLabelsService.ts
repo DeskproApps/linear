@@ -12,7 +12,7 @@ const getTeamLabelsService = (
     query Team($teamId: String!) {
       team(id: $teamId) {
         labels {
-          nodes { id name color }
+          nodes { id name icon color }
         }
       }
     }
