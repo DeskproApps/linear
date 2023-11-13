@@ -11,10 +11,14 @@ import {
 import { setEntityService } from "../../services/deskpro";
 import {
   useSetTitle,
+  useReplyBox,
   useAsyncError,
+  useDeskproLabel,
   useRegisterElements,
+  useLinkedAutoComment,
 } from "../../hooks";
 import { useSearchIssues } from "./hooks";
+import { getEntityMetadata } from "../../utils";
 import { LinkIssues } from "../../components";
 import type { FC } from "react";
 import type { TicketContext } from "../../types";
@@ -24,6 +28,9 @@ const LinkIssuesPage: FC = () => {
   const navigate = useNavigate();
   const { client } = useDeskproAppClient();
   const { context } = useDeskproLatestAppContext() as { context: TicketContext };
+  const { addLinkComment } = useLinkedAutoComment();
+  const { addDeskproLabel } = useDeskproLabel()
+  const { setSelectionState } = useReplyBox();
   const { asyncErrorHandler } = useAsyncError();
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -59,12 +66,25 @@ const LinkIssuesPage: FC = () => {
     setIsSubmitting(true);
 
     return Promise.all([
-      ...selectedIssues.map((issue) => setEntityService(client, ticketId, issue.id)),
+      ...selectedIssues.map((issue) => setEntityService(client, ticketId, issue.id, getEntityMetadata(issue))),
+      ...selectedIssues.map((issue) => addLinkComment(issue.id)),
+      ...selectedIssues.map((issue) => addDeskproLabel(issue)),
+      ...selectedIssues.map((issue) => setSelectionState(issue.id, true, "email")),
+      ...selectedIssues.map((issue) => setSelectionState(issue.id, true, "note")),
     ])
       .then(() => navigate("/home"))
       .catch(asyncErrorHandler)
       .finally(() => setIsSubmitting(false));
-  }, [client, asyncErrorHandler, selectedIssues, ticketId, navigate]);
+  }, [
+    client,
+    ticketId,
+    navigate,
+    selectedIssues,
+    addLinkComment,
+    addDeskproLabel,
+    setSelectionState,
+    asyncErrorHandler,
+  ]);
 
   useSetTitle("Link Issue");
 

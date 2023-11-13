@@ -4,7 +4,15 @@ import isEmpty from "lodash/isEmpty";
 import { Stack } from "@deskpro/deskpro-ui";
 import { Title, Link, Property, TwoProperties } from "@deskpro/app-sdk";
 import { parse, format } from "../../utils/date";
-import { LinearLogo, DeskproTickets, IssueLabel, Member } from "../common";
+import {
+  Team,
+  Member,
+  Status,
+  Priority,
+  IssueLabel,
+  LinearLogo,
+  DeskproTickets,
+} from "../common";
 import type { FC, MouseEventHandler } from "react";
 import type { Issue } from "../../services/linear/types";
 
@@ -38,20 +46,27 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
         link={get(issue, ["url"])}
       />
       <TwoProperties
-        leftLabel="Issue ID"
-        leftText={get(issue, ["identifier"])}
-        rightLabel="Status"
-        rightText={get(issue, ["state", "name"])}
+        leftLabel="Team"
+        leftText={<Team team={get(issue, ["team"])}/>}
+        rightLabel="Issue ID"
+        rightText={get(issue, ["identifier"])}
       />
       <TwoProperties
-        leftLabel="Priority"
-        leftText={get(issue, ["priorityLabel"])}
-        rightLabel="Due Date"
-        rightText={format(parse(get(issue, ["dueDate"])))}
+        leftLabel="Status"
+        leftText={<Status state={get(issue, ["state"])}/>}
+        rightLabel="Priority"
+        rightText={(
+          <Priority
+            priority={get(issue, ["priority"])}
+            priorityLabel={get(issue, ["priorityLabel"])}
+          />
+        )}
       />
-      <Property
-        label="Deskpro Tickets"
-        text={<DeskproTickets<Issue["id"]> entityId={get(issue, ["id"])}/>}
+      <TwoProperties
+        leftLabel="Due Date"
+        leftText={format(parse(get(issue, ["dueDate"])))}
+        rightLabel="Deskpro Tickets"
+        rightText={<DeskproTickets<Issue["id"]> entityId={get(issue, ["id"])}/>}
       />
       {assigneeName && (
         <Property
@@ -68,7 +83,7 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
         <Property
           label="Labels"
           text={(
-            <Stack gap={6}>
+            <Stack gap={6} wrap="wrap">
               {(labels).map((label) => (
                 <IssueLabel
                   key={label.id}

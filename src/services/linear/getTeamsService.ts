@@ -1,5 +1,10 @@
 import get from "lodash/get";
 import { baseRequest } from "./baseRequest";
+import {
+  teamFragment,
+  stateFragment,
+  labelFragment,
+} from "./fragments";
 import { gql, normalize } from "../../utils";
 import type { IDeskproClient } from "@deskpro/app-sdk";
 import type { Team } from "./types";
@@ -9,14 +14,17 @@ const getTeamsService = (client: IDeskproClient) => {
     query Teams {
       teams {
         nodes {
-          id name color icon
-          states { nodes { type name id color position } }
+          ...teamInfo
+          states { nodes { ...stateInfo } }
           defaultIssueState { id name }
-          labels { nodes { id name color } }
+          labels { nodes { ...labelInfo } }
         }
       }
       issuePriorityValues { priority label }
     }
+    ${teamFragment}
+    ${stateFragment}
+    ${labelFragment}
   `;
 
   return baseRequest<Team[]>(client, { data: query })

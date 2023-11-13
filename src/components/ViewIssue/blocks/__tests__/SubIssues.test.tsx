@@ -6,6 +6,8 @@ import type { Props } from "../SubIssues";
 const renderSubIssues = (props?: Partial<Props>) => render((
   <SubIssues
     subIssues={props?.subIssues || mockIssue.data.issue.children.nodes as never}
+    onChangeState={props?.onChangeState || jest.fn()}
+    states={props?.states || []}
   />
 ), { wrappers: { theme: true } });
 

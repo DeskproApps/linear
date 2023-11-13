@@ -7,6 +7,7 @@ import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
 import { DeskproAppProvider, LoadingSpinner } from "@deskpro/app-sdk";
 import { queryClient } from "./query";
+import { ReplyBoxProvider } from "./hooks";
 import { App } from "./App";
 import { ErrorFallback } from "./components";
 
@@ -27,7 +28,9 @@ root.render((
         <QueryClientProvider client={queryClient}>
           <Suspense fallback={<LoadingSpinner/>}>
             <ErrorBoundary FallbackComponent={ErrorFallback}>
-              <App />
+              <ReplyBoxProvider>
+                <App />
+              </ReplyBoxProvider>
             </ErrorBoundary>
           </Suspense>
         </QueryClientProvider>

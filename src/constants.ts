@@ -1,3 +1,5 @@
+import { lightTheme } from "@deskpro/deskpro-ui";
+
 /** Typo */
 export const nbsp = "\u00A0";
 
@@ -21,6 +23,11 @@ export const placeholders = {
   ACCESS_TOKEN: `[user[${ACCESS_TOKEN_PATH}]]`,
   CLIENT_ID: "__client_id__",
   CLIENT_SECRET: "__client_secret__",
+};
+
+export const DESKPRO_LABEL = {
+  name: "Deskpro",
+  color: lightTheme.colors.brandSecondary,
 };
 
 /** Linear */

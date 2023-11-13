@@ -1,0 +1,11 @@
+import type { FC } from "react";
+
+const NoPriority: FC = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" aria-label="No Priority" fill="#6B6F76">
+    <rect x="1" y="7.25" width="3" height="1.5" rx="0.5" opacity="0.9"/>
+    <rect x="6" y="7.25" width="3" height="1.5" rx="0.5" opacity="0.9"/>
+    <rect x="11" y="7.25" width="3" height="1.5" rx="0.5" opacity="0.9"/>
+  </svg>
+);
+
+export { NoPriority };

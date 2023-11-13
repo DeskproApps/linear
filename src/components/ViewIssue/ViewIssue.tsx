@@ -3,14 +3,24 @@ import { Container } from "../common";
 import { Info, SubIssues, Comments } from "./blocks";
 import type { FC } from "react";
 import type { Maybe } from "../../types";
-import type { Issue } from "../../services/linear/types";
+import type { Issue, WorkflowState } from "../../services/linear/types";
 
 type Props = {
   issue: Maybe<Issue>,
+  states: WorkflowState[],
   onNavigateToAddComment: () => void,
+  onChangeState: (
+    issueId: Issue["id"],
+    statusId: WorkflowState["id"],
+  ) => Promise<void|Issue>,
 };
 
-const ViewIssue: FC<Props> = ({ issue, onNavigateToAddComment }) => {
+const ViewIssue: FC<Props> = ({
+  issue,
+  states,
+  onChangeState,
+  onNavigateToAddComment,
+}) => {
   return (
     <>
       <Container>
@@ -20,7 +30,11 @@ const ViewIssue: FC<Props> = ({ issue, onNavigateToAddComment }) => {
       <HorizontalDivider/>
 
       <Container>
-        <SubIssues subIssues={issue?.children || []}/>
+        <SubIssues
+          states={states}
+          subIssues={issue?.children || []}
+          onChangeState={onChangeState}
+        />
       </Container>
 
       <HorizontalDivider/>
