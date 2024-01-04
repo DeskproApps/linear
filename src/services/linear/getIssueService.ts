@@ -1,5 +1,13 @@
 import get from "lodash/get";
 import { baseRequest } from "./baseRequest";
+import {
+  userFragment,
+  teamFragment,
+  stateFragment,
+  labelFragment,
+  commentFragment,
+  issueFullInfoFragment,
+} from "./fragments";
 import { gql, normalize } from "../../utils";
 import type { IDeskproClient } from "@deskpro/app-sdk";
 import type { Issue } from "./types";
@@ -11,22 +19,28 @@ const getIssueService = (
   const query = gql({ issueId })`
     query Issue($issueId: String!) {
       issue(id: $issueId) {
-        id identifier title description priority priorityLabel url dueDate
-        state { id name }
-        labels { nodes { color id name } }
-        assignee { id displayName avatarUrl name email }
-        team { id name }
+        ...issueFullInfo
+        state { ...stateInfo }
+        labels { nodes { ...labelInfo } }
+        assignee { ...userInfo }
+        team { ...teamInfo }
         children {
-          nodes { id identifier title state { id name type } }
+          nodes { ...issueInfo state { ...stateInfo } }
         }
         comments {
           nodes {
-            id body createdAt
-            user { id displayName avatarUrl name email }
+            ...commentInfo
+            user { ...userInfo }
           }
         }
       }
     }
+    ${issueFullInfoFragment}
+    ${stateFragment}
+    ${teamFragment}
+    ${labelFragment}
+    ${userFragment}
+    ${commentFragment}
   `;
 
   return baseRequest<Issue>(client, { data: query })

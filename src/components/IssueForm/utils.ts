@@ -2,14 +2,17 @@ import { createElement } from "react";
 import get from "lodash/get";
 import map from "lodash/map";
 import size from "lodash/size";
+import sortBy from "lodash/sortBy";
 import { z } from "zod";
 import { DATE_ON } from "../../constants";
-import { getOption } from "../../utils";
+import { getOption, sortStates } from "../../utils";
 import { parse, format } from "../../utils/date";
-import { IssueLabel, Member } from "../common";
+import { Team, IssueLabel, Member, Status, Priority } from "../common";
 import type { Maybe } from "../../types";
 import type {
+  Team as TeamType,
   Issue,
+  WorkflowState,
   IssueEditInput,
   IssuePriorityValue,
   Member as MemberType,
@@ -62,9 +65,24 @@ const getPriorityOptions = (priorities?: IssuePriorityValue[]) => {
     return [];
   }
 
-  return priorities.map((priority) => {
-    return getOption(priority.priority, priority.label);
+  return sortBy(priorities, ["priority"]).map((priority) => {
+    return getOption(priority.priority, createElement(Priority, {
+      priority: priority.priority,
+      priorityLabel: priority.label,
+    }));
   });
+};
+
+const getTeamOptions = (teams?: TeamType[]) => {
+  if (!Array.isArray(teams) || !size(teams)) {
+    return [];
+  }
+
+  return teams.map((team: TeamType) => getOption(
+    team.id,
+    createElement(Team, { team }),
+    team.name,
+  ));
 };
 
 const getLabelOptions = (labels?: IssueLabelType[]) => {
@@ -101,11 +119,25 @@ const getAssigneeOptions = (members?: MemberType[]) => {
   });
 };
 
+const getStatusOptions = (states?: WorkflowState[]) => {
+  if (!Array.isArray(states) || !size(states)) {
+    return [];
+  }
+
+  return sortStates(states).map((state) => getOption(
+    state.id,
+    createElement(Status, { state }),
+    state.name,
+  ));
+};
+
 export {
   getInitValues,
   getIssueValues,
+  getTeamOptions,
   getLabelOptions,
   validationSchema,
+  getStatusOptions,
   getPriorityOptions,
   getAssigneeOptions,
 };
