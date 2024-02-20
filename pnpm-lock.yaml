@@ -7519,7 +7519,7 @@ packages:
       stylus:
         optional: true
     dependencies:
-      esbuild: 0.13.15
+      esbuild: 0.14.54
       postcss: 8.4.35
       resolve: 1.22.2
       rollup: 2.77.3

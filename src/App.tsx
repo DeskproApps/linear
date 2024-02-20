@@ -63,14 +63,14 @@ const App: FC = () => {
   return (
     <>
       <Routes>
-        <Route path="/admin/callback" element={<AdminCallbackPage/>}/>)
-        <Route path="/login" element={<LoginPage/>}/>)
-        <Route path="/home" element={<HomePage/>}/>)
-        <Route path="/issues/link" element={<LinkIssuesPage/>} />
-        <Route path="/issues/view/:issueId" element={<ViewIssuePage/>} />
-        <Route path="/issues/create" element={<CreateIssuePage/>}/>)
-        <Route path="/issues/edit/:issueId" element={<EditIssuePage/>}/>)
-        <Route path="/issues/:issueId/comments/create" element={<CreateIssueCommentPage/>} />
+        <Route path="/admin/callback" element={<AdminCallbackPage/>}/>
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/home" element={<HomePage/>}/>
+        <Route path="/issues/link" element={<LinkIssuesPage/>}/>
+        <Route path="/issues/view/:issueId" element={<ViewIssuePage/>}/>
+        <Route path="/issues/create" element={<CreateIssuePage/>}/>
+        <Route path="/issues/edit/:issueId" element={<EditIssuePage/>}/>
+        <Route path="/issues/:issueId/comments/create" element={<CreateIssueCommentPage/>}/>
         <Route index element={<LoadingAppPage/>} />
       </Routes>
       {!isAdmin && (<><br/><br/><br/></>)}
