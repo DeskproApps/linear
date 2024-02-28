@@ -1,9 +1,8 @@
 import styled from "styled-components";
+import get from "lodash/get";
 import toLower from "lodash/toLower";
-import { match } from "ts-pattern";
-import { faCrown } from "@fortawesome/free-solid-svg-icons";
-import { faGitlab } from "@fortawesome/free-brands-svg-icons";
 import { P5, Icon, Stack } from "@deskpro/deskpro-ui";
+import { icons } from "./icons";
 import type { FC } from "react";
 import type { AnyIcon } from "@deskpro/deskpro-ui";
 import type { Issue } from "../../../services/linear/types";
@@ -31,10 +30,7 @@ const Team: FC<Props> = ({ team }) => {
     );
   }
 
-  const teamIcon = match(toLower(icon))
-    .with("crown", () => faCrown)
-    .with("gitlab", () => faGitlab)
-    .otherwise(() => undefined);
+  const teamIcon = get(icons, toLower(icon));
 
   return (
     <Stack align="center" gap={6} >
