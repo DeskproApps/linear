@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@deskpro/app-sdk':
-    specifier: 3.0.11
-    version: 3.0.11(@babel/core@7.22.9)(@deskpro/deskpro-ui@7.1.0)(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(typescript@4.9.5)
+    specifier: ^3.0.18
+    version: 3.0.18(@babel/core@7.22.9)(@deskpro/deskpro-ui@7.18.3)(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(typescript@4.9.5)
   '@deskpro/deskpro-ui':
-    specifier: ^7.1.0
-    version: 7.1.0(@types/web@0.0.86)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+    specifier: ^7.18.3
+    version: 7.18.3(@types/web@0.0.86)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   '@fortawesome/free-brands-svg-icons':
     specifier: ^6.4.2
     version: 6.4.2
@@ -29,9 +29,6 @@ dependencies:
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
-  iframe-resizer:
-    specifier: ^4.3.7
-    version: 4.3.7
   javascript-time-ago:
     specifier: ^2.5.9
     version: 2.5.9
@@ -178,6 +175,9 @@ devDependencies:
   react-resize-observer:
     specifier: ^1.1.1
     version: 1.1.1(react@18.2.0)
+  resize-observer-polyfill:
+    specifier: ^1.5.1
+    version: 1.5.1
   rimraf:
     specifier: ^3.0.2
     version: 3.0.2
@@ -1026,8 +1026,8 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@deskpro/app-sdk@3.0.11(@babel/core@7.22.9)(@deskpro/deskpro-ui@7.1.0)(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(typescript@4.9.5):
-    resolution: {integrity: sha512-bkwyjuAu+qoPv1JpDCRFH3q3jn8+02OhJnsD1+vPTlujQqR3F/OhmWErnE9B72QSRXyJXCeg+KC5JJ5pUnVELw==}
+  /@deskpro/app-sdk@3.0.18(@babel/core@7.22.9)(@deskpro/deskpro-ui@7.18.3)(@types/react-dom@18.2.14)(@types/react@18.2.31)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(typescript@4.9.5):
+    resolution: {integrity: sha512-hjmXu7Jz6rYeckJsVa7Hk4a2VnF2vhknluTpqtcwrphwESe0xIYMv2yMueObt6oPqA3yUAGHhjQ+A4UHNuFCQw==}
     engines: {node: ^16.0.0}
     peerDependencies:
       '@deskpro/deskpro-ui': ^7
@@ -1036,7 +1036,7 @@ packages:
       react: ^18
       react-dom: ^18
     dependencies:
-      '@deskpro/deskpro-ui': 7.1.0(@types/web@0.0.86)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+      '@deskpro/deskpro-ui': 7.18.3(@types/web@0.0.86)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
       '@fortawesome/fontawesome-svg-core': 6.4.0
       '@fortawesome/free-brands-svg-icons': 6.4.2
       '@fortawesome/free-regular-svg-icons': 6.4.0
@@ -1068,8 +1068,8 @@ packages:
       - typescript
     dev: false
 
-  /@deskpro/deskpro-ui@7.1.0(@types/web@0.0.86)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
-    resolution: {integrity: sha512-0a74iUbAOfIw0EocB5xxwATNImDhOCUkeM+bfvFdqyEkWCLIIbJgzaexoPpfFIUeeNWOFzB6m4ctzc0FKSRPfA==}
+  /@deskpro/deskpro-ui@7.18.3(@types/web@0.0.86)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+    resolution: {integrity: sha512-FzHX2NRAPAwr0YDcWFh9ZxNgtItGJIoLC65QcGRJgGFAbsHF93E+OrF9xKm1HQr2Ag6ZwlUk4+HNh18SopmVCA==}
     engines: {node: ^16.0.0}
     peerDependencies:
       '@typescript/lib-dom': npm:@types/web
@@ -4839,11 +4839,6 @@ packages:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
     dev: true
 
-  /iframe-resizer@4.3.7:
-    resolution: {integrity: sha512-a3EGVScU9NtUpj6lWvGhVw3EfOw5AopRs5xGsQU385kWdgQt++OsD6PCnTV+8YkgBu/g28rLIh0EztFg9UQr1Q==}
-    engines: {node: '>=0.8.0'}
-    dev: false
-
   /ignore@4.0.6:
     resolution: {integrity: sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==}
     engines: {node: '>= 4'}
@@ -6768,6 +6763,10 @@ packages:
 
   /requires-port@1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
+    dev: true
+
+  /resize-observer-polyfill@1.5.1:
+    resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
     dev: true
 
   /resolve-cwd@3.0.0:
