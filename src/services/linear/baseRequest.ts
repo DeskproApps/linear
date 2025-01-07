@@ -5,7 +5,7 @@ import { proxyFetch } from "@deskpro/app-sdk";
 import { GRAPHQL_URL, placeholders } from "../../constants";
 import { getQueryParams } from "../../utils";
 import { LinearError } from "./LinearError";
-import type { Request, FetchOptions } from "../../types";
+import type { Request } from "../../types";
 
 const baseRequest: Request = async (client, {
   url,
@@ -21,7 +21,7 @@ const baseRequest: Request = async (client, {
   const params = getQueryParams(queryParams);
 
   const requestUrl = `${baseUrl}${isEmpty(params) ? "": `?${params}`}`;
-  const options: FetchOptions = {
+  const options: RequestInit = {
     method,
     headers: {
       "Authorization": `Bearer ${placeholders.ACCESS_TOKEN}`,
