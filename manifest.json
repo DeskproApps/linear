@@ -2,7 +2,7 @@
   "name": "@deskpro-apps/linear",
   "title": "Linear",
   "description": "View your Linear issues linked with Deskpro tickets to streamline communication with users.",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "scope": "agent",
   "isSingleInstall": false,
   "hasDevMode": true,
