@@ -21,8 +21,8 @@ const useLinkedIssues: UseLinkedIssues = () => {
   const ticketId = useMemo(() => get(context, ["data", "ticket", "id"]), [context]);
 
   const linkedIds = useQueryWithClient(
-    [QueryKey.LINKED_ISSUES, ticketId],
-    (client) => getEntityListService(client, ticketId),
+    [QueryKey.LINKED_ISSUES],
+    (client) => ticketId ? getEntityListService(client, ticketId) : Promise.resolve([]),
     { enabled: Boolean(ticketId) },
   );
 

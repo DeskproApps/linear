@@ -31,7 +31,7 @@ const useLinkedAutoComment = (): Result => {
   const permalink = useMemo(() => get(context, ["data", "ticket", "permalinkUrl"]), [context]);
 
   const addLinkComment = useCallback((issueId?: Issue["id"]) => {
-    if (!client || !isEnable || !issueId) {
+    if (!client || !isEnable || !issueId || !ticketId) {
       return Promise.resolve();
     }
 
@@ -45,7 +45,7 @@ const useLinkedAutoComment = (): Result => {
   }, [client, isEnable, ticketId, permalink]);
 
   const addUnlinkComment = useCallback((issueId?: Issue["id"]) => {
-    if (!client || !isEnable || !issueId) {
+    if (!client || !isEnable || !issueId || !ticketId) {
       return Promise.resolve();
     }
 
