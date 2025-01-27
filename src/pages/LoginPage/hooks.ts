@@ -50,7 +50,7 @@ const useLogin = (): Result => {
   );
 
   useEffect(() => {
-    if (callback?.callbackUrl) {
+    if (callback?.callbackUrl && clientId) {
       setAuthUrl(`https://linear.app/oauth/authorize?${getQueryParams({
         response_type: "code",
         client_id: clientId,
@@ -63,7 +63,7 @@ const useLogin = (): Result => {
   }, [callback, clientId, key]);
 
   const poll = useCallback(() => {
-    if (!client || !callback?.poll) {
+    if (!client || !callback?.poll || !ticketId) {
       return;
     }
 
