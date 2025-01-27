@@ -31,7 +31,7 @@ const useUnlinkIssue = (): Result => {
   const ticketId = useMemo(() => get(context, ["data", "ticket", "id"]), [context]);
 
   const unlink = useCallback((issue: Issue) => {
-    if (!client || isEmpty(issue)) {
+    if (!client || isEmpty(issue) || !ticketId) {
       return;
     }
 

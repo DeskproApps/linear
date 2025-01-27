@@ -263,6 +263,10 @@ const ReplyBoxProvider: FC<PropsWithChildren> = ({ children }) => {
   }, 200);
 
   useInitialisedDeskproAppClient((client) => {
+    if (!ticketId) {
+      return;
+    };
+
     if (isCommentOnNote) {
       registerReplyBoxNotesAdditionsTargetAction(client, ticketId, map(issues, "id"), issuesMap);
       client.registerTargetAction(`${APP_PREFIX}OnReplyBoxNote`, "on_reply_box_note");
