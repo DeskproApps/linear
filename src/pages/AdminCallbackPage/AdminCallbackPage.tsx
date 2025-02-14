@@ -1,14 +1,14 @@
-import { useState, useMemo } from "react";
+import { FC, useState } from 'react';
 import styled from "styled-components";
-import { v4 as uuidv4 } from "uuid";
 import { P1 } from "@deskpro/deskpro-ui";
 import {
   LoadingSpinner,
   CopyToClipboardInput,
   useInitialisedDeskproAppClient,
+  useDeskproLatestAppContext
 } from "@deskpro/app-sdk";
-import type { FC } from "react";
-import type { Maybe } from "../../types";
+import { getQueryParams } from '../../utils';
+import type { Maybe, Settings } from '../../types';
 
 export type Props = { callbackUrl?: Maybe<string> };
 
@@ -32,14 +32,33 @@ export const AdminCallback: FC<Props> = ({ callbackUrl }) => {
 };
 
 const AdminCallbackPage: FC = () => {
+  const { context } = useDeskproLatestAppContext<unknown, Settings>();
   const [callbackUrl, setCallbackUrl] = useState<string|null>(null);
-  const key = useMemo(() => uuidv4(), []);
 
-  useInitialisedDeskproAppClient((client) => {
-    client.oauth2()
-      .getAdminGenericCallbackUrl(key, /code=(?<token>[0-9a-f]+)/, /state=(?<key>.+)/)
-      .then(({ callbackUrl }) => setCallbackUrl(callbackUrl));
-  }, [key]);
+  useInitialisedDeskproAppClient(client => {
+    const clientID = context?.settings.client_id;
+
+    client.startOauth2Local(
+      ({ callbackUrl, state }) => {
+        setCallbackUrl(callbackUrl);
+
+        return `https://linear.app/oauth/authorize?${getQueryParams({
+          client_id: clientID ?? '',
+          state,
+          prompt: 'consent',
+          scope: ['read', 'write'].join(','),
+          response_type: 'code',
+          redirect_uri: callbackUrl
+        })}`
+      },
+      /code=(?<code>[0-9a-f]+)/,
+      async () => ({data: {access_token: ''}}),
+      {
+        pollInterval: 10000,
+        timeout: 600
+      }
+    );
+  }, []);
 
   return (
     <AdminCallback callbackUrl={callbackUrl} />
