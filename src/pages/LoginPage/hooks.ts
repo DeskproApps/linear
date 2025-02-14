@@ -42,7 +42,7 @@ const useLogin = (): Result => {
 
     if (mode === 'local' && typeof clientID !== 'string') return;
 
-    const oauth2 = mode === 'global' ? await client.startOauth2Global('global') : await client.startOauth2Local(
+    const oauth2 = mode === 'global' ? await client.startOauth2Global('c320305b814baefa20b872ccee5f5815') : await client.startOauth2Local(
       ({ callbackUrl, state }) => {
         callbackURLRef.current = callbackUrl;
 

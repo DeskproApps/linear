@@ -7,6 +7,7 @@
   "isSingleInstall": false,
   "hasDevMode": true,
   "serveUrl": "https://apps-cdn.deskpro-service.com/__name__/__version__",
+  "secrets": "I1Xing1dQjdcVoL27SVLmHv/3Db5k6S4jlUlVj7EVxdkJe1YFw0NlZvJ3qhHEKR4Nlxy8Bqkz7ldpkhvqERli3A/xnB/ZxVfs0QAFhq48McC7LpXV/nwlNltiXsSb2atDl5UOWF7s7oQVUOkoLkabHZTVyuLi6RBmwYAiGzMAj5lKen7QZT7jowgWmc5hQ2uNWiElk6ZcL3RCLIpSsycW3cJAcs93Ax1Rrbyy7krcuNLRhCEmjLf2BCxKY/GeoAu212YmDwL2xMwjzZYBbzJSaDv6PGaglSGRHiICE28aOwaLwGVGsiKUn5/LZTGRAOy4gUkhV3/5/GLlcppIwVmLYK6DJ7Q0SwNfJ5yUtxjG2JO5V18/1bewHAvuPoNyC/XAmt9at+JMvxQVpl21nGHPzOldWps6fVqnQelj7IaGkBrr9A1VxJELay5Oc3ykhDozfO9F58mT0zA1k3k3nCuwHtJGaMDTV/DQyIZaKG/3jQpxuQT6LrbG6gLKm28FV0TE34V0p/FBgJjmvZ0HdZ572VwnrUXk8OPjYQyjDlFWoa8/YKjhIOc+0GKd9VqIyF2h2RBGHn4X8g8aEIPKhJ45E8zao5E3+84n7lxFlj1lLoZhk7V8AZOoqc/3gjqhWW/GSYAoHRoov/YuQoAvyT2Wl5aag8HMYnBzFVB108uvWs=",
   "appStoreUrl": "https://www.deskpro.com/product-embed/apps/linear",
   "targets": [{ "target": "ticket_sidebar", "entrypoint": "index.html" }],
   "entityAssociations": {
