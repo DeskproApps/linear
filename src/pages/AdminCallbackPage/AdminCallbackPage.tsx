@@ -49,7 +49,7 @@ const AdminCallbackPage: FC = () => {
           scope: ['read', 'write'].join(','),
           response_type: 'code',
           redirect_uri: callbackUrl
-        })}`
+        })}`;
       },
       /code=(?<code>[0-9a-f]+)/,
       async () => ({data: {access_token: ''}}),
