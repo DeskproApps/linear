@@ -53,7 +53,7 @@ const useLogin = (): Result => {
           scope: ['read', 'write'].join(','),
           response_type: 'code',
           redirect_uri: callbackUrl
-        })}`
+        })}`;
       },
       /code=(?<code>[0-9a-f]+)/,
       async code => {
