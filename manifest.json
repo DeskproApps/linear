@@ -23,6 +23,7 @@
       "type": "boolean",
       "isRequired": false,
       "isBackendOnly": false,
+      "default": true,
       "order": 5
     },
     "client_id": {
