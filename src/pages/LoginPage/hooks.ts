@@ -1,7 +1,5 @@
-import { useState, useCallback, useMemo, useRef } from 'react';
-import { useNavigate } from "react-router-dom";
-import get from "lodash/get";
-import size from "lodash/size";
+import { useState, useCallback, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   useDeskproLatestAppContext,
   useInitialisedDeskproAppClient,
@@ -16,7 +14,7 @@ import {
 } from "../../services/linear";
 import { getQueryParams } from "../../utils";
 import { DEFAULT_ERROR } from "../../constants";
-import type { Maybe, Settings } from '../../types';
+import type { Maybe, Settings, TicketData } from '../../types';
 
 export type Result = {
   onLogIn: () => void,
@@ -26,18 +24,18 @@ export type Result = {
 };
 
 const useLogin = (): Result => {
-  const { context } = useDeskproLatestAppContext<unknown, Settings>();
+  const { context } = useDeskproLatestAppContext<TicketData, Settings>();
   const callbackURLRef = useRef('');
   const navigate = useNavigate();
   const [error, setError] = useState<Maybe<string>>(null);
   const [authUrl, setAuthUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const ticketId = useMemo(() => get(context, ["data", "ticket", "id"]), [context]);
 
   useInitialisedDeskproAppClient(async client => {
     if (context?.settings.use_deskpro_saas === undefined) return;
 
     const clientID = context.settings.client_id;
+    const ticketID = context.data?.ticket.id;
     const mode = context?.settings.use_deskpro_saas ? 'global' : 'local';
 
     if (mode === 'local' && typeof clientID !== 'string') return;
@@ -75,17 +73,19 @@ const useLogin = (): Result => {
 
       const user = await getCurrentUserService(client);
 
-      if (!user.data.viewer.id) Promise.reject();
+      if (!user.data.viewer.id) {
+        throw new Error('User ID Not Found');
+      };
 
-      const entityIDs = await getEntityListService(client, ticketId);
+      const entityIDs = await getEntityListService(client, ticketID ?? '');
 
-      navigate(size(entityIDs) ? '/home' : '/issues/link');
+      navigate(entityIDs.length ? '/home' : '/issues/link');
     } catch (error) {
-      setError(get(error, ['data', 'error_description']) || DEFAULT_ERROR);
+      setError(error instanceof Error ? error.message : DEFAULT_ERROR);
     } finally {
       setIsLoading(false);
     };
-  },[]);
+  }, [context, navigate]);
 
   const onLogIn = useCallback(() => {
     setIsLoading(true);
