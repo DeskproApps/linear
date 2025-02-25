@@ -51,7 +51,7 @@ const AdminCallbackPage: FC = () => {
           redirect_uri: callbackUrl
         })}`;
       },
-      /code=(?<code>[0-9a-f]+)/,
+      /^$/,
       async () => ({data: {access_token: ''}}),
       {
         pollInterval: 10000,
