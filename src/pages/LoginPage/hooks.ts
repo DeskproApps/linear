@@ -13,7 +13,7 @@ import {
   getCurrentUserService,
 } from "../../services/linear";
 import { getQueryParams } from "../../utils";
-import { DEFAULT_ERROR } from "../../constants";
+import { DEFAULT_ERROR, GLOBAL_CLIENT_ID } from '../../constants';
 import type { Maybe, Settings, TicketData } from '../../types';
 
 export type Result = {
@@ -40,7 +40,7 @@ const useLogin = (): Result => {
 
     if (mode === 'local' && typeof clientID !== 'string') return;
 
-    const oauth2 = mode === 'global' ? await client.startOauth2Global('c320305b814baefa20b872ccee5f5815') : await client.startOauth2Local(
+    const oauth2 = mode === 'global' ? await client.startOauth2Global(GLOBAL_CLIENT_ID) : await client.startOauth2Local(
       ({ callbackUrl, state }) => {
         callbackURLRef.current = callbackUrl;
 

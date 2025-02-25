@@ -30,6 +30,8 @@ export const DESKPRO_LABEL = {
   color: lightTheme.colors.brandSecondary,
 };
 
+export const GLOBAL_CLIENT_ID = '84426e34c22e0b0b63eb05f3987fc2d4';
+
 /** Linear */
 export const GRAPHQL_URL = "https://api.linear.app/graphql";
 export const AUTH_URL = "https://api.linear.app/oauth";
