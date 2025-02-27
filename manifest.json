@@ -7,6 +7,7 @@
   "isSingleInstall": false,
   "hasDevMode": true,
   "serveUrl": "https://apps-cdn.deskpro-service.com/__name__/__version__",
+  "secrets": "YKUdpMlNzwpUelomsopbywv8XYrWkvw0vAr6/u3T9kCrx/5HwtZwMghUwTwZxbyQImhyFxGWXqNGkpJ3OtPEZHWM8/MRBVXXvryGdv3QQsobqUJe0YK/GihmQfOaE9njxmtkcSz1yBP91+ESgjyd3sZeRFcem0/nyU0QOPHenqnZGCwvDAgxhFyN2um1k6RWHTOB3hFgCeBFyQVX9e6Lzy8FIaQVXmlkGmdzoqOzpGQc+LykX2jXwE51PQf+Kesj6OfP6v+tRNrXTt/S+EF49QGUrg3q7InBx7LthhG9S4AHHrjMj5/N8+LwVVMJ7NuhYCWBOGPwjjZ77UIfmP6JimByvrioM95Z7Z1DQE5LD/BGR03PWTgbfvdqqNSjFIlHPrpV+XBb4mVswWJkE1XBhEfhfhAsm58r6UmotH4ggOEl7ca2u/9o9JMClawe1955P5PQe9QzuDGMimixigXvZ/mX4iwAuefnTAl8UUBvoLneq5vfrz/9oHlrcC6htr0Mzd05TKwsFpTHjoWtYrkNtbfdRh1WpWw3UtGwBtUnLO3bqdDuv85xLsJDxfEzTYDagxsdiyYiyYrwBi/NxgBOtO/HtnPNAD3FZikkGSG0vrqKT9uFfGv/3Z6BcA5ngD8E7wStlg3bD1Bdno7tFkNEdE+PYz43a5W6qPvDRGHwtV42Y6EExk3ql/ugna3PkNwHpdYJqKnJIqUUMztwSJWQb30XfRCWcbbrtSuxwXX06lGLSUtNHcJf2Lu3voMgAM72MSQWamnB39NoEk8IjOKg+0Hsou/7fp/DjTXpU/b5FWkjqmX9De/dmiooKoODAHxEJRG6wukt2EmxIyViTtgCtF1tbrnbyb//haKYvCqa6D3n7p544BZ94Po78pnr/SqOwWPNP+1zI2a96/5GDY9+AAxD0om2Ja0leQxqoQPmjGYuXPlvau/col4xoWYj7mnPiZu94L5Wv1OxDLaHBVrIQrawicqApXMYlsK6NN6KtePJdmHha7q4ZkkfxLC2mm05M9WO7HEL5P8lQtS3jDCHYh6Zu0EnbjTN0mA8L3NSsherKk24jqr5JlKF+5rCh2F59SR7rR8itVtFKOMt61tOug==",
   "appStoreUrl": "https://www.deskpro.com/product-embed/apps/linear",
   "targets": [{ "target": "ticket_sidebar", "entrypoint": "index.html" }],
   "entityAssociations": {
@@ -17,18 +18,28 @@
     }
   },
   "settings": {
+    "use_deskpro_saas": {
+      "title": "One-Click Installation",
+      "type": "boolean",
+      "isRequired": false,
+      "isBackendOnly": false,
+      "default": true,
+      "order": 5
+    },
     "client_id": {
       "title": "Client ID",
       "type": "string",
-      "isRequired": true,
+      "isRequired": false,
       "isBackendOnly": false,
+      "condition": "settings.use_deskpro_saas != true",
       "order": 10
     },
     "client_secret": {
       "title": "Client Secret",
       "type": "string",
-      "isRequired": true,
+      "isRequired": false,
       "isBackendOnly": true,
+      "condition": "settings.use_deskpro_saas != true",
       "order": 20
     },
     "callback_url": {
@@ -37,6 +48,7 @@
       "options": { "entrypoint": "#/admin/callback" },
       "isRequired": false,
       "isBackendOnly": true,
+      "condition": "settings.use_deskpro_saas != true",
       "order": 30
     },
     "add_comment_when_linking": {
