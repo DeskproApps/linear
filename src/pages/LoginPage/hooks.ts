@@ -94,6 +94,7 @@ const useLogin = (): Result => {
       } catch (error) {
         setError(error instanceof Error ? error.message : DEFAULT_ERROR);
       } finally {
+        setIsPolling(false);
         setIsLoading(false);
       };
     };
