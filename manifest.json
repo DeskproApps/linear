@@ -2,7 +2,7 @@
   "name": "@deskpro-apps/linear",
   "title": "Linear",
   "description": "View your Linear issues linked with Deskpro tickets to streamline communication with users.",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "scope": "agent",
   "isSingleInstall": false,
   "hasDevMode": true,
@@ -46,10 +46,7 @@
     "callback_url": {
       "title": "Callback URL",
       "type": "app_embedded",
-      "options": {
-        "entrypoint": "#/admin/callback",
-        "height": "100px"
-      },
+      "options": { "entrypoint": "#/admin/callback", "height": "100px" },
       "isRequired": false,
       "isBackendOnly": true,
       "condition": "settings.use_advanced_connect != false",
