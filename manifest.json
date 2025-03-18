@@ -19,7 +19,8 @@
   },
   "settings": {
     "use_advanced_connect": {
-      "title": "One-Click Installation",
+      "title": "Advanced Connect",
+      "description": "Follow the setup guide and use your credentials to connect the app to Deskpro",
       "type": "boolean",
       "isRequired": false,
       "isBackendOnly": false,
