@@ -36,7 +36,7 @@ const useLogin = (): Result => {
   const ticketID = context?.data?.ticket.id;
 
   useInitialisedDeskproAppClient(async client => {
-    if (context?.settings.use_advanced_connect === undefined) return;
+    if (!context?.settings) return;
 
     const clientID = context.settings.client_id;
     const mode = context?.settings.use_advanced_connect ? 'local' : 'global';
