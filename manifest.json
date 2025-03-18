@@ -18,12 +18,12 @@
     }
   },
   "settings": {
-    "use_deskpro_saas": {
+    "use_advanced_connect": {
       "title": "One-Click Installation",
       "type": "boolean",
       "isRequired": false,
       "isBackendOnly": false,
-      "default": true,
+      "default": false,
       "order": 5
     },
     "client_id": {
@@ -31,7 +31,7 @@
       "type": "string",
       "isRequired": false,
       "isBackendOnly": false,
-      "condition": "settings.use_deskpro_saas != true",
+      "condition": "settings.use_advanced_connect != false",
       "order": 10
     },
     "client_secret": {
@@ -39,16 +39,19 @@
       "type": "string",
       "isRequired": false,
       "isBackendOnly": true,
-      "condition": "settings.use_deskpro_saas != true",
+      "condition": "settings.use_advanced_connect != false",
       "order": 20
     },
     "callback_url": {
       "title": "Callback URL",
       "type": "app_embedded",
-      "options": { "entrypoint": "#/admin/callback" },
+      "options": {
+        "entrypoint": "#/admin/callback",
+        "height": "100px"
+      },
       "isRequired": false,
       "isBackendOnly": true,
-      "condition": "settings.use_deskpro_saas != true",
+      "condition": "settings.use_advanced_connect != false",
       "order": 30
     },
     "add_comment_when_linking": {
