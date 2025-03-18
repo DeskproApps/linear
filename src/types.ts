@@ -32,7 +32,7 @@ export type Request = <T>(
 
 /** Deskpro types */
 export type Settings = {
-  use_deskpro_saas: string,
+  use_advanced_connect: string,
   client_id: string,
   client_secret?: string,
   add_comment_when_linking?: boolean,
