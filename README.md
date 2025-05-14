@@ -12,7 +12,7 @@
   <p>Linear is a comprehensive project and issue management platform that seamlessly integrates workflows throughout the product development cycle.</p>
   <a href='https://support.deskpro.com/ga/guides/developers/anatomy-of-an-app' target='_blank'>Deskpro Apps Documentation</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href='https://developer.linear.com/' target='_blank'>Linear API Documentation</a>
+  <a href='https://linear.app/developers' target='_blank'>Linear API Documentation</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href='./SETUP.md' target='_blank'>Linear App Setup Guide</a>
   <br />
