@@ -96,10 +96,10 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
           )}
         />
       )}
-      <Property
-        label='Relationships'
-        text={
-          relations.length > 0 && (
+      {relations.length > 0 && (
+        <Property
+          label='Relationships'
+          text={
             <Stack gap={6} wrap='wrap'>
               {relations.map(relation => {
                 console.log('relation', relation);
@@ -107,9 +107,9 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
                 return <p>{relation.type}</p>
               })}
             </Stack>
-          )
-        }
-      />
+          }
+        />
+      )}
     </>
   );
 };
