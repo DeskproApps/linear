@@ -1,7 +1,7 @@
 import { useMemo, useCallback } from "react";
 import get from "lodash/get";
 import isEmpty from "lodash/isEmpty";
-import { Stack } from "@deskpro/deskpro-ui";
+import { P5, Stack } from '@deskpro/deskpro-ui';
 import { Title, Link, Property, TwoProperties } from "@deskpro/app-sdk";
 import { parse, format } from "../../utils/date";
 import {
@@ -12,6 +12,7 @@ import {
   IssueLabel,
   LinearLogo,
   DeskproTickets,
+  InternalIconLink
 } from "../common";
 import type { FC, MouseEventHandler } from "react";
 import type { Issue, Relation } from '../../services/linear/types';
@@ -103,8 +104,27 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
             <Stack gap={6} wrap='wrap'>
               {relations.map(relation => {
                 console.log('relation', relation);
+                let relationship = '';
 
-                return <p>{relation.type}</p>
+                switch (relation.type) {
+                  case 'related':
+                    relationship = 'Related to';
+
+                    break;
+                };
+
+                return (
+                  <div>
+                    <P5>
+                      {`${relationship} `}
+                      <strong>{relation.relatedIssue.title}</strong>
+                    </P5>
+                    <P5>
+                      {`ID: ${relation.relatedIssue.identifier} `}
+                      <InternalIconLink link={`/issues/view/${relation.relatedIssue.id}`} />
+                    </P5>
+                  </div>
+                );
               })}
             </Stack>
           }
