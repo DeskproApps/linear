@@ -1,4 +1,4 @@
-import { useMemo, useCallback } from "react";
+import { useMemo, useCallback, useEffect } from "react";
 import get from "lodash/get";
 import isEmpty from "lodash/isEmpty";
 import { P5, Stack } from '@deskpro/deskpro-ui';
@@ -101,9 +101,8 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
         <Property
           label='Relationships'
           text={
-            <Stack gap={6} wrap='wrap'>
+            <div style={{display: 'flex', flexDirection: 'column'}}>
               {relations.map(relation => {
-                console.log('relation', relation);
                 let relationship = '';
 
                 switch (relation.type) {
@@ -111,22 +110,27 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
                     relationship = 'Related to';
 
                     break;
+
+                  case 'blocks':
+                    relationship = 'Blocks';
+                    
+                    break;
                 };
 
                 return (
-                  <div>
+                  <>
                     <P5>
                       {`${relationship} `}
                       <strong>{relation.relatedIssue.title}</strong>
                     </P5>
-                    <P5>
+                    <P5 style={{display: 'flex'}}>
                       {`ID: ${relation.relatedIssue.identifier} `}
                       <InternalIconLink link={`/issues/view/${relation.relatedIssue.id}`} />
                     </P5>
-                  </div>
+                  </>
                 );
               })}
-            </Stack>
+            </div>
           }
         />
       )}
