@@ -14,7 +14,7 @@ import {
   DeskproTickets,
 } from "../common";
 import type { FC, MouseEventHandler } from "react";
-import type { Issue } from "../../services/linear/types";
+import type { Issue, Relation } from '../../services/linear/types';
 
 export type Props = {
   issue: Issue,
@@ -28,6 +28,7 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
       || get(issue, ["assignee", "email"]);
   }, [issue]);
   const labels = useMemo(() => get(issue, ["labels"], []) || [], [issue]);
+  const relations = issue.relations as unknown as Relation[];
 
   const onClick: MouseEventHandler<HTMLAnchorElement> = useCallback((e) => {
     e.preventDefault();
@@ -95,6 +96,20 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
           )}
         />
       )}
+      <Property
+        label='Relationships'
+        text={
+          relations.length > 0 && (
+            <Stack gap={6} wrap='wrap'>
+              {relations.map(relation => {
+                console.log('relation', relation);
+
+                return <p>{relation.type}</p>
+              })}
+            </Stack>
+          )
+        }
+      />
     </>
   );
 };
