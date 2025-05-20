@@ -1,7 +1,7 @@
-import { useMemo, useCallback, useEffect } from "react";
+import { useMemo, useCallback } from "react";
 import get from "lodash/get";
 import isEmpty from "lodash/isEmpty";
-import { P5, Stack } from '@deskpro/deskpro-ui';
+import { Stack } from '@deskpro/deskpro-ui';
 import { Title, Link, Property, TwoProperties } from "@deskpro/app-sdk";
 import { parse, format } from "../../utils/date";
 import {
@@ -15,7 +15,8 @@ import {
   InternalIconLink
 } from "../common";
 import type { FC, MouseEventHandler } from "react";
-import type { Issue, Relation } from '../../services/linear/types';
+import type { Issue } from '../../services/linear/types';
+import { RelationshipItem } from '../RelationshipItem/RelationshipItem';
 
 export type Props = {
   issue: Issue,
@@ -29,7 +30,7 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
       || get(issue, ["assignee", "email"]);
   }, [issue]);
   const labels = useMemo(() => get(issue, ["labels"], []) || [], [issue]);
-  const relations = issue.relations as unknown as Relation[];
+  const relations = issue.relations;
 
   const onClick: MouseEventHandler<HTMLAnchorElement> = useCallback((e) => {
     e.preventDefault();
@@ -102,34 +103,7 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
           label='Relationships'
           text={
             <div style={{display: 'flex', flexDirection: 'column'}}>
-              {relations.map(relation => {
-                let relationship = '';
-
-                switch (relation.type) {
-                  case 'related':
-                    relationship = 'Related to';
-
-                    break;
-
-                  case 'blocks':
-                    relationship = 'Blocks';
-                    
-                    break;
-                };
-
-                return (
-                  <>
-                    <P5>
-                      {`${relationship} `}
-                      <strong>{relation.relatedIssue.title}</strong>
-                    </P5>
-                    <P5 style={{display: 'flex'}}>
-                      {`ID: ${relation.relatedIssue.identifier} `}
-                      <InternalIconLink link={`/issues/view/${relation.relatedIssue.id}`} />
-                    </P5>
-                  </>
-                );
-              })}
+              {relations.map(relation => <RelationshipItem key={relation.id} relation={relation} />)}
             </div>
           }
         />
