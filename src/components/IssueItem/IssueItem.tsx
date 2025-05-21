@@ -12,11 +12,12 @@ import {
   IssueLabel,
   LinearLogo,
   DeskproTickets,
-  InternalIconLink
+  ErrorBlock
 } from "../common";
 import type { FC, MouseEventHandler } from "react";
 import type { Issue } from '../../services/linear/types';
 import { RelationshipItem } from '../RelationshipItem/RelationshipItem';
+import { useIssueRelationships } from '../../hooks/useIssueRelationships';
 
 export type Props = {
   issue: Issue,
@@ -30,7 +31,7 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
       || get(issue, ["assignee", "email"]);
   }, [issue]);
   const labels = useMemo(() => get(issue, ["labels"], []) || [], [issue]);
-  const relations = issue.relations;
+  const { relationships, error } = useIssueRelationships(issue.relations, issue.id);
 
   const onClick: MouseEventHandler<HTMLAnchorElement> = useCallback((e) => {
     e.preventDefault();
@@ -98,12 +99,13 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
           )}
         />
       )}
-      {relations.length > 0 && (
+      {error && <ErrorBlock text={error} />}
+      {relationships.length > 0 && (
         <Property
           label='Relationships'
           text={
             <div style={{display: 'flex', flexDirection: 'column'}}>
-              {relations.map(relation => <RelationshipItem key={relation.id} relation={relation} />)}
+              {relationships.map(relationship => <RelationshipItem key={relationship.id} relation={relationship} />)}
             </div>
           }
         />
