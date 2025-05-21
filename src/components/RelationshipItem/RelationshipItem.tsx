@@ -20,8 +20,18 @@ export function RelationshipItem({ relation }: RelationshipItem) {
 
             break;
 
+        case 'duplicate':
+            relationship = 'Duplicate of';
+
+            break;
+
         case 'blocked':
             relationship = 'Blocked by';
+
+            break;
+
+        case 'duplicated':
+            relationship = 'Duplicated by';
 
             break;
     };

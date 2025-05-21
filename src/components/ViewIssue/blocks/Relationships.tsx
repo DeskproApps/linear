@@ -27,29 +27,33 @@ export function Relationships({ relationships, issueID }: Relationships) {
             .then((issues: Issue[]) => {
                 const blockedIssues = issues
                     .filter(issue => issue.relations.some(relation => relation.type === 'blocks' && relation.relatedIssue.id === issueID))
-                    .map(blockingIssue => {
-                        const originalRelation = blockingIssue.relations.find(relation => relation.type === 'blocks' && relation.relatedIssue.id === issueID);
+                    .map(blockingIssue => ({
+                        id: blockingIssue.id,
+                        type: 'blocked',
+                        relatedIssue: blockingIssue
+                    }));
 
-                        return originalRelation
-                            ? {
-                                ...originalRelation,
-                                id: blockingIssue.id,
-                                type: 'blocked',
-                                relatedIssue: blockingIssue,
-                            }
-                            : null;
-                    })
-                    .filter(Boolean);
+                const duplicatedIssues = issues
+                    .filter(issue => issue.relations.some(relation => relation.type === 'duplicate' && relation.relatedIssue.id === issueID))
+                    .map(duplicateIssue => ({
+                        id: duplicateIssue.id,
+                        type: 'duplicated',
+                        relatedIssue: duplicateIssue
+                    }));
 
                 setTrueRelationships(() => {
-                    const allRelationships = [...relationships, ...blockedIssues];
-                    const uniqueRelationships = Array
-                        .from(
+                    const allRelationships = [
+                        ...relationships,
+                        ...blockedIssues,
+                        ...duplicatedIssues
+                    ];
+                    const uniqueRelationships = Array.from(
+                        new Map(
                             allRelationships
                                 .filter((relationship): relationship is Relation => relationship !== null)
                                 .map(relationship => [relationship.id, relationship] as [string, Relation])
-                        )
-                        .map(([_, relationship]) => relationship);
+                        ).values()
+                    );
 
                     return uniqueRelationships;
                 });
