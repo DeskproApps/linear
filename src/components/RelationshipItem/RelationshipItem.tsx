@@ -19,6 +19,11 @@ export function RelationshipItem({ relation }: RelationshipItem) {
             relationship = 'Blocks';
 
             break;
+
+        case 'blocked':
+            relationship = 'Blocked by';
+
+            break;
     };
 
     return (
