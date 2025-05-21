@@ -19,6 +19,7 @@ import {
   CreateIssuePage,
   AdminCallbackPage,
   CreateIssueCommentPage,
+  AddRelationshipPage
 } from "./pages";
 import type { FC } from "react";
 import type { EventPayload } from "./types";
@@ -67,6 +68,7 @@ const App: FC = () => {
       <Route path="/issues/create" element={<CreateIssuePage />} />
       <Route path="/issues/edit/:issueId" element={<EditIssuePage />} />
       <Route path="/issues/:issueId/comments/create" element={<CreateIssueCommentPage />} />
+      <Route path='/issues/:issueId/relationships' element={<AddRelationshipPage />} />
       <Route index element={<LoadingAppPage />} />
     </Routes>
   );
