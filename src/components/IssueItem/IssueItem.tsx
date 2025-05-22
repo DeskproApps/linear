@@ -1,7 +1,7 @@
 import { useMemo, useCallback } from "react";
 import get from "lodash/get";
 import isEmpty from "lodash/isEmpty";
-import { Stack } from '@deskpro/deskpro-ui';
+import { Stack } from "@deskpro/deskpro-ui";
 import { Title, Link, Property, TwoProperties } from "@deskpro/app-sdk";
 import { parse, format } from "../../utils/date";
 import {
@@ -15,7 +15,7 @@ import {
   ErrorBlock
 } from "../common";
 import type { FC, MouseEventHandler } from "react";
-import type { Issue } from '../../services/linear/types';
+import type { Issue } from "../../services/linear/types";
 import { RelationshipItem } from '../RelationshipItem/RelationshipItem';
 import { useIssueRelationships } from '../../hooks/useIssueRelationships';
 
