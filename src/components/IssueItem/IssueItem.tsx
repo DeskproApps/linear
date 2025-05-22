@@ -100,7 +100,7 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
         />
       )}
       {error && <ErrorBlock text={error} />}
-      {relationships.length > 0 && (
+      {relationships?.length > 0 && (
         <Property
           label='Relationships'
           text={
