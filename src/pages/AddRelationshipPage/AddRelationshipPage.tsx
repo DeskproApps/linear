@@ -101,6 +101,8 @@ export function AddRelationshipPage() {
         setSelectedIssues(newSelectedIssues);
     };
 
+    const filteredIssues = issues.filter(issue => issue.id !== issueId);
+
     return (
         <>
             <Container>
@@ -138,7 +140,7 @@ export function AddRelationshipPage() {
             <HorizontalDivider />
             <Container>
                 <Issues
-                    issues={issues}
+                    issues={filteredIssues}
                     selectedIssues={selectedIssues}
                     isLoading={isLoading}
                     onChangeSelectedIssue={handleChangeSelectedIssue}
