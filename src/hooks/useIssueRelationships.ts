@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useDeskproAppClient } from '@deskpro/app-sdk';
+import { useState } from 'react';
+import { useDeskproAppClient, useInitialisedDeskproAppClient } from '@deskpro/app-sdk';
 import { getIssuesService } from '../services/linear';
 import { Issue, Relation } from '../services/linear/types';
 
@@ -8,9 +8,7 @@ export function useIssueRelationships(originalRelationships: Relation[], issueID
     const [relationships, setRelationships] = useState<Relation[]>(originalRelationships);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        if (!client) return;
-
+    useInitialisedDeskproAppClient(client => {
         getIssuesService(client, {})
             .then((issues: Issue[]) => {
                 const relatedIssues = issues
