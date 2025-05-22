@@ -12,11 +12,14 @@ import { cloneDeep, set } from 'lodash';
 import { getOption } from '../../utils';
 import { addRelationship } from '../../services/linear/addRelationship';
 
-type RelationshipType = 'related' | 'blocks';
+type RelationshipType = 'related' | 'blocks' | 'blocked' | 'duplicates' | 'duplicated';
 
 const relationshipTypes: {value: RelationshipType}[] = [
-    { value: 'related' },
-    { value: 'blocks' }
+    {value: 'related'},
+    {value: 'blocks'},
+    {value: 'blocked'},
+    {value: 'duplicates'},
+    {value: 'duplicated'}
 ];
 
 export function AddRelationshipPage() {
@@ -52,18 +55,32 @@ export function AddRelationshipPage() {
         setIsSubmitting(true);
 
         selectedIssues.forEach(issue => {
-            addRelationship(client, {
+            let input = {
                 issueId: issueId,
                 relatedIssueId: issue.id,
-                type: selectedType
-            })
+                type: selectedType as string
+            };
+
+            if (selectedType === 'blocked' || selectedType === 'duplicated') {
+                input = {
+                    issueId: issue.id,
+                    relatedIssueId: issueId,
+                    type: selectedType === 'blocked' ? 'blocks' : 'duplicate'
+                };
+            };
+
+            if (selectedType === 'duplicates') {
+                input.type = 'duplicate';
+            };
+
+            addRelationship(client, input)
                 .then(() => {
                     navigate(`/issues/view/${issueId}`);
                 })
                 .catch(error => {
                     setError(`error adding relationship: ${error.message}`);
                 });
-            });
+        });
 
         setIsSubmitting(false);
     };

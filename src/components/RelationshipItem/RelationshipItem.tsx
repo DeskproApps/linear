@@ -16,7 +16,7 @@ export function RelationshipItem({ relation }: RelationshipItem) {
             break;
 
         case 'blocks':
-            relationship = 'Blocks';
+            relationship = 'Blocking';
 
             break;
 
