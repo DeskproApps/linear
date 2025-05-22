@@ -17,7 +17,7 @@ export function Relationships({ relationships, issueID }: Relationships) {
 
     return (
         <>
-            <Title title={`Relationships (${trueRelationships.length})`} onClick={() => {navigate(`/issues/${issueID}/relationships`)}} />
+            <Title title={`Relationships (${trueRelationships.length})`} onClick={() => {navigate(`/issues/${issueID}/relationships/create`)}} />
             {error && <ErrorBlock text={error} />}
             {trueRelationships.length === 0
                 ? <P5>No relationships found</P5>
