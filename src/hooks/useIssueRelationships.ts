@@ -13,6 +13,13 @@ export function useIssueRelationships(originalRelationships: Relation[], issueID
 
         getIssuesService(client, {})
             .then((issues: Issue[]) => {
+                const relatedIssues = issues
+                    .filter(issue => issue.relations.some(relation => relation.type === 'related' && relation.relatedIssue.id === issueID))
+                    .map(relatedIssue => ({
+                        id: relatedIssue.id,
+                        type: 'related',
+                        relatedIssue: relatedIssue
+                    }));
                 const blockedIssues = issues
                     .filter(issue => issue.relations.some(relation => relation.type === 'blocks' && relation.relatedIssue.id === issueID))
                     .map(blockingIssue => ({
@@ -20,7 +27,6 @@ export function useIssueRelationships(originalRelationships: Relation[], issueID
                         type: 'blocked',
                         relatedIssue: blockingIssue
                     }));
-
                 const duplicatedIssues = issues
                     .filter(issue => issue.relations.some(relation => relation.type === 'duplicate' && relation.relatedIssue.id === issueID))
                     .map(duplicateIssue => ({
@@ -28,9 +34,9 @@ export function useIssueRelationships(originalRelationships: Relation[], issueID
                         type: 'duplicated',
                         relatedIssue: duplicateIssue
                     }));
-
                 const allRelationships = [
                     ...originalRelationships,
+                    ...relatedIssues,
                     ...blockedIssues,
                     ...duplicatedIssues
                 ];
