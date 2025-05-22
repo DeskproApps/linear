@@ -59,7 +59,7 @@ export function AddRelationshipPage() {
 
         setIsSubmitting(true);
 
-        selectedIssues.forEach(issue => {
+        const promises = selectedIssues.map(issue => {
             let input = {
                 issueId: issueId,
                 relatedIssueId: issue.id,
@@ -78,16 +78,19 @@ export function AddRelationshipPage() {
                 input.type = 'duplicate';
             };
 
-            addRelationship(client, input)
-                .then(() => {
-                    navigate(`/issues/view/${issueId}`);
-                })
-                .catch(error => {
-                    setError(`error adding relationship: ${error.message}`);
-                });
+            return addRelationship(client, input);
         });
 
-        setIsSubmitting(false);
+        Promise.all(promises)
+            .then(() => {
+                navigate(`/issues/view/${issueId}`);
+            })
+            .catch(error => {
+                setError(`error adding relationship: ${error.message}`);
+            })
+            .finally(() => {
+                setIsSubmitting(false);
+            });
     };
 
     const handleCancel = () => {
