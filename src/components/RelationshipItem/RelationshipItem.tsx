@@ -1,45 +1,19 @@
 import { P5 } from '@deskpro/deskpro-ui';
 import { InternalIconLink } from '../common';
 import { Relation } from '../../services/linear/types';
+import { RELATIONSHIP_LABELS, RelationshipType } from '../../types/relationships';
 
 interface RelationshipItem {
     relation: Relation;
 };
 
 export function RelationshipItem({ relation }: RelationshipItem) {
-    let relationship = '';
-
-    switch (relation.type) {
-        case 'related':
-            relationship = 'Related to';
-
-            break;
-
-        case 'blocks':
-            relationship = 'Blocking';
-
-            break;
-
-        case 'duplicate':
-            relationship = 'Duplicate of';
-
-            break;
-
-        case 'blocked':
-            relationship = 'Blocked by';
-
-            break;
-
-        case 'duplicated':
-            relationship = 'Duplicated by';
-
-            break;
-    };
+    const label = RELATIONSHIP_LABELS[relation.type as RelationshipType] || relation.type;
 
     return (
         <>
             <P5>
-                {`${relationship} `}
+                {`${label}: `}
                 <strong>{relation.relatedIssue.title}</strong>
             </P5>
             <P5 style={{display: 'flex'}}>

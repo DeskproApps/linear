@@ -11,21 +11,7 @@ import { useSearchIssues } from '../LinkIssuesPage/hooks';
 import { addRelationship } from '../../services/linear/addRelationship';
 import { getOption } from '../../utils';
 import { Issue } from '../../services/linear/types';
-
-type RelationshipType = 'related' | 'blocks' | 'blocked' | 'duplicates' | 'duplicated';
-
-type RelationshipTypes = {
-    value: RelationshipType;
-    label: string;
-}[];
-
-const relationshipTypes: RelationshipTypes = [
-    {value: 'related', label: 'Related to'},
-    {value: 'blocks', label: 'Blocking'},
-    {value: 'blocked', label: 'Blocked by'},
-    {value: 'duplicates', label: 'Duplicates'},
-    {value: 'duplicated', label: 'Duplicated by'}
-];
+import { RELATIONSHIP_OPTIONS, RelationshipType } from '../../types/relationships';
 
 export function AddRelationshipPage() {
     const { client } = useDeskproAppClient();
@@ -46,7 +32,7 @@ export function AddRelationshipPage() {
 
     const handleQueryChange = useDebouncedCallback(setQuery, 1500);
 
-    const options = relationshipTypes.map(type => getOption<RelationshipType>(type.value, type.label));
+    const options = RELATIONSHIP_OPTIONS.map(type => getOption<RelationshipType>(type.value, type.label));
 
     const handleSelectChange = (value?: string | string[]) => {
         setSelectedType(value as RelationshipType);
