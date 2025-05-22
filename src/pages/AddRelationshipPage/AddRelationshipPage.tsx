@@ -1,25 +1,30 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { cloneDeep } from 'lodash';
 import { useDebouncedCallback } from 'use-debounce';
 import { HorizontalDivider, Search, Select, useDeskproAppClient } from '@deskpro/app-sdk';
-import { Button, Container, ErrorBlock, Label } from '../../components/common';
-import { useRegisterElements, useSetTitle } from '../../hooks';
 import { Stack } from '@deskpro/deskpro-ui';
 import { Issues } from '../../components/LinkIssues/blocks';
+import { Button, Container, ErrorBlock, Label } from '../../components/common';
+import { useRegisterElements, useSetTitle } from '../../hooks';
 import { useSearchIssues } from '../LinkIssuesPage/hooks';
-import { Issue } from '../../services/linear/types';
-import { cloneDeep, set } from 'lodash';
-import { getOption } from '../../utils';
 import { addRelationship } from '../../services/linear/addRelationship';
+import { getOption } from '../../utils';
+import { Issue } from '../../services/linear/types';
 
 type RelationshipType = 'related' | 'blocks' | 'blocked' | 'duplicates' | 'duplicated';
 
-const relationshipTypes: {value: RelationshipType}[] = [
-    {value: 'related'},
-    {value: 'blocks'},
-    {value: 'blocked'},
-    {value: 'duplicates'},
-    {value: 'duplicated'}
+type RelationshipTypes = {
+    value: RelationshipType;
+    label: string;
+}[];
+
+const relationshipTypes: RelationshipTypes = [
+    {value: 'related', label: 'Related to'},
+    {value: 'blocks', label: 'Blocking'},
+    {value: 'blocked', label: 'Blocked by'},
+    {value: 'duplicates', label: 'Duplicates'},
+    {value: 'duplicated', label: 'Duplicated by'}
 ];
 
 export function AddRelationshipPage() {
@@ -41,7 +46,7 @@ export function AddRelationshipPage() {
 
     const handleQueryChange = useDebouncedCallback(setQuery, 1500);
 
-    const options = relationshipTypes.map(type => getOption<RelationshipType>(type.value));
+    const options = relationshipTypes.map(type => getOption<RelationshipType>(type.value, type.label));
 
     const handleSelectChange = (value?: string | string[]) => {
         setSelectedType(value as RelationshipType);
