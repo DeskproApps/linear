@@ -33,6 +33,28 @@ const getIssueService = (
             user { ...userInfo }
           }
         }
+        relations {
+          nodes {
+            type
+            relatedIssue {
+              ...issueInfo
+              state {
+                ...stateInfo
+              }
+              team {
+                ...teamInfo
+              }
+              labels {
+                nodes {
+                  ...labelInfo
+                }
+              }
+              assignee {
+                ...userInfo
+              }
+            }
+          }
+        }
       }
     }
     ${issueFullInfoFragment}

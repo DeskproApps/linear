@@ -10,6 +10,7 @@ import type {
   IssueUpdateInput as IssueUpdateInputGQL,
   IssuePriorityValue as IssuePriorityValueGQL,
   IssueLabelCreateInput as IssueLabelCreateInputGQL,
+  IssueRelation as IssueRelationGQL
 } from "./GraphQLSchemas";
 
 export type Response<T> = Promise<T>;
@@ -81,6 +82,7 @@ export type Issue = Omit<IssueGQL, "labels"|"children"|"comments"|"team"> & {
   children: Issue[],
   comments: IssueComment[],
   team: Team,
+  relations: Relation[]
 };
 
 export type WorkflowState = WorkflowStateGQL;
@@ -105,3 +107,5 @@ export type IssueEditInput = Pick<
 >;
 
 export type IssueLabelInput = Pick<IssueLabelCreateInputGQL, "teamId"|"name"|"color">
+
+export type Relation = IssueRelationGQL;
