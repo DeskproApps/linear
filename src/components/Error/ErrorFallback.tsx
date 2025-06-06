@@ -3,14 +3,9 @@ import { Stack } from "@deskpro/deskpro-ui";
 import { DEFAULT_ERROR } from "../../constants";
 import { LinearError } from "../../services/linear";
 import { Container, ErrorBlock } from "../common";
-import type { FC } from "react";
-import type { FallbackProps } from "react-error-boundary";
+import { FallbackRender } from "@sentry/react";
 
-type Props = Omit<FallbackProps, "error"> & {
-  error: Error|LinearError,
-};
-
-const ErrorFallback: FC<Props> = ({ error }) => {
+const ErrorFallback: FallbackRender = ({ error }) => {
   let message = DEFAULT_ERROR;
 
   // eslint-disable-next-line no-console
