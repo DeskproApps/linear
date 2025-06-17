@@ -60,7 +60,7 @@ export function AddRelationshipPage() {
                 };
             };
 
-            if (selectedType === 'duplicates') {
+            if (selectedType === 'duplicate') {
                 input.type = 'duplicate';
             };
 
