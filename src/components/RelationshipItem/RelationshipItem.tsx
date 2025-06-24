@@ -8,7 +8,7 @@ interface RelationshipItem {
 };
 
 export function RelationshipItem({ relation }: RelationshipItem) {
-    const label = RELATIONSHIP_LABELS[relation.type as RelationshipType] || relation.type;
+    const label = RELATIONSHIP_LABELS[relation.type as RelationshipType];
 
     return (
         <>
