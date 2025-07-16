@@ -7,9 +7,10 @@ import { Markdown } from "../Markdown";
 import type { FC } from "react";
 import type { AnyIcon, AvatarProps, ImageAvatarProps } from "@deskpro/deskpro-ui";
 import type { Maybe } from "../../../types";
+import { DeskproAppTheme } from "@deskpro/app-sdk";
 
-const TimeAgo = styled(ReactTimeAgo)`
-  color: ${({theme}) => theme.colors.grey80};
+const TimeAgo = styled(ReactTimeAgo) <DeskproAppTheme>`
+  color: ${({ theme }) => theme.colors.grey80};
 `;
 
 const Author = styled(Stack)`
@@ -39,7 +40,7 @@ const Comment: FC<Props> = ({ name, avatarUrl, text, date }) => {
         />
         {date && (
           <P11>
-            <TimeAgo date={date} timeStyle="mini"/>
+            <TimeAgo date={date} timeStyle="mini" />
           </P11>
         )}
       </Author>
