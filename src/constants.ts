@@ -23,12 +23,12 @@ export const placeholders = {
   ACCESS_TOKEN: `[user[${ACCESS_TOKEN_PATH}]]`,
   CLIENT_ID: "__client_id__",
   CLIENT_SECRET: "__client_secret__",
-};
+} as const;
 
 export const DESKPRO_LABEL = {
   name: "Deskpro",
   color: lightTheme.colors.brandSecondary,
-};
+} as const;
 
 export const GLOBAL_CLIENT_ID = '84426e34c22e0b0b63eb05f3987fc2d4';
 

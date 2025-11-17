@@ -92,12 +92,21 @@
       {
         "url": "https://api.linear.app/oauth/.*",
         "methods": ["POST"],
-        "timeout": 20
+        "timeout": 20,
+        "settingInjections": {
+          "client_id": {
+            "body": ["client_id"]
+          },
+          "client_secret": {
+            "body": ["client_secret"]
+          }
+        }
       },
       {
         "url": "https://api.linear.app/graphql",
         "methods": ["POST"],
-        "timeout": 20
+        "timeout": 20,
+        "settingInjections": {}
       }
     ]
   }
