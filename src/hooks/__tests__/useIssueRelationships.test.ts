@@ -31,6 +31,7 @@ describe("useIssueRelationships", () => {
     );
 
     expect(result.current.relationships).toEqual(mockRelations);
+    expect(result.current.relationships).toBe(mockRelations);
     expect(result.current.error).toBeNull();
     expect(mockGetIssuesService).not.toHaveBeenCalled();
   });
@@ -59,8 +60,11 @@ describe("useIssueRelationships", () => {
       { initialProps: { id: "issue-1" } }
     );
 
+    const firstResult = result.current;
+
     rerender({ id: "issue-99" });
 
+    expect(result.current).toBe(firstResult);
     expect(result.current.relationships).toEqual(mockRelations);
     expect(result.current.error).toBeNull();
   });
