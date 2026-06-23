@@ -1,12 +1,32 @@
 import { useMemo } from 'react';
 import { Relation } from '../services/linear/types';
 
-// TODO: Reverse-relation discovery (issues that point TO this issue) is not
-// implemented here. The IssueFilter type has no relatedIssue.id comparator.
-// Use Issue.inverseRelations instead to surface bidirectional relationships.
-export function useIssueRelationships(originalRelationships: Relation[] = [], _issueID: string) {
-    return useMemo(
-        () => ({ relationships: originalRelationships, error: null }),
-        [originalRelationships]
-    );
+const INVERSE_TYPE: Record<string, string> = {
+    blocks: 'blocked',
+    duplicate: 'duplicated',
+    related: 'related',
+};
+
+export function useIssueRelationships(
+    relations: Relation[] = [],
+    inverseRelations: Relation[] = [],
+) {
+    const relationships = useMemo(() => {
+        const inverseMapped = inverseRelations.map(rel => ({
+            ...rel,
+            type: INVERSE_TYPE[rel.type] ?? rel.type,
+            relatedIssue: rel.issue,
+        }));
+
+        const all = [...relations, ...inverseMapped];
+        const seen = new Set<string>();
+        return all.filter(r => {
+            const key = r.id ?? (r.relatedIssue as { id?: string })?.id;
+            if (!key || seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        });
+    }, [relations, inverseRelations]);
+
+    return { relationships, error: null };
 }

@@ -82,7 +82,8 @@ export type Issue = Omit<IssueGQL, "labels"|"children"|"comments"|"team"> & {
   children: Issue[],
   comments: IssueComment[],
   team: Team,
-  relations: Relation[]
+  relations: Relation[],
+  inverseRelations: Relation[],
 };
 
 export type WorkflowState = WorkflowStateGQL;
