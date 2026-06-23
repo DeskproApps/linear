@@ -90,12 +90,12 @@
   "proxy": {
     "whitelist": [
       {
-        "url": "https://api.linear.app/oauth/.*",
+        "url": "https://api\\.linear\\.app/oauth/.*",
         "methods": ["POST"],
         "timeout": 20
       },
       {
-        "url": "https://api.linear.app/graphql",
+        "url": "https://api\\.linear\\.app/graphql",
         "methods": ["POST"],
         "timeout": 20
       }
