@@ -5,6 +5,7 @@ const INVERSE_TYPE: Record<string, string> = {
     blocks: 'blocked',
     duplicate: 'duplicated',
     related: 'related',
+    similar: 'similar',
 };
 
 export function useIssueRelationships(

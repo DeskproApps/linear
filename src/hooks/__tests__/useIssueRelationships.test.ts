@@ -24,6 +24,14 @@ describe("useIssueRelationships", () => {
         expect(types).toEqual(["blocked", "duplicated", "related"]);
     });
 
+    test("maps the symmetric 'similar' inverse relation to itself", () => {
+        const inverseRelations: Relation[] = [
+            makeRelation({ id: "rel-s", type: "similar", issue: { id: "issue-s", title: "S" } as Relation["issue"] }),
+        ];
+        const { result } = renderHook(() => useIssueRelationships([], inverseRelations));
+        expect(result.current.relationships[0].type).toBe("similar");
+    });
+
     test("uses issue field as relatedIssue for inverse relations", () => {
         const otherIssue = { id: "issue-b", title: "Issue B" };
         const inv: Relation[] = [
