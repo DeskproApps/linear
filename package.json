@@ -82,6 +82,13 @@
   "pnpm": {
     "overrides": {
       "tmp": "^0.2.4"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@sentry/cli",
+      "@swc/core",
+      "core-js",
+      "esbuild"
+    ]
   }
 }
