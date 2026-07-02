@@ -22,7 +22,7 @@
     "source=${localEnv:HOME}/.gitconfig,target=/home/node/.gitconfig,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
   ],
-  "postCreateCommand": "pnpm install",
+  "postCreateCommand": "corepack enable && corepack prepare pnpm@10.15.0 --activate && pnpm install",
   "containerEnv": {
     "npm_config_store_dir": "/home/node/.local/share/pnpm/store"
   }
