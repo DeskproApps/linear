@@ -17,6 +17,7 @@ import {
 import type { FC, MouseEventHandler } from "react";
 import type { Issue } from "../../services/linear/types";
 import { RelationshipItem } from '../RelationshipItem/RelationshipItem';
+import { ReleaseItem } from '../ReleaseItem/ReleaseItem';
 import { useIssueRelationships } from '../../hooks/useIssueRelationships';
 
 export type Props = {
@@ -31,6 +32,7 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
       || get(issue, ["assignee", "email"]);
   }, [issue]);
   const labels = useMemo(() => get(issue, ["labels"], []) || [], [issue]);
+  const releases = useMemo(() => get(issue, ["releases"], []) || [], [issue]);
   const { relationships, error } = useIssueRelationships(issue.relations, issue.id);
 
   const onClick: MouseEventHandler<HTMLAnchorElement> = useCallback((e) => {
@@ -106,6 +108,16 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
           text={
             <div style={{display: 'flex', flexDirection: 'column'}}>
               {relationships.map(relationship => <RelationshipItem key={relationship.id} relation={relationship} />)}
+            </div>
+          }
+        />
+      )}
+      {releases?.length > 0 && (
+        <Property
+          label='Releases'
+          text={
+            <div style={{display: 'flex', flexDirection: 'column'}}>
+              {releases.map(release => <ReleaseItem key={release.id} release={release} />)}
             </div>
           }
         />

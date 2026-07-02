@@ -35,4 +35,21 @@ describe("DeskproTickets", () => {
       expect(await findAllByText(/Wall/i)).toHaveLength(2);
       expect(await findAllByText(/Defense/i)).toHaveLength(2);
   });
+
+  test("renders linked releases", async () => {
+    const issue = normalize(mockIssue.data.issue) as Record<string, unknown>;
+    issue.releases = [{
+      id: "rel-1",
+      name: "Hotfix",
+      version: "2026.2.9",
+      url: "https://linear.app/deskpro/release/1",
+      stage: { id: "s1", name: "Next patch release", type: "started", color: "#0f783c" },
+    }];
+
+    const { findByText } = renderIssueItem({ issue: issue as never });
+
+    expect(await findByText("Releases")).toBeInTheDocument();
+    expect(await findByText(/Hotfix \(2026\.2\.9\)/i)).toBeInTheDocument();
+    expect(await findByText(/Stage: Next patch release/i)).toBeInTheDocument();
+  });
 });
