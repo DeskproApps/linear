@@ -35,8 +35,32 @@ const getIssueService = (
         }
         relations {
           nodes {
+            id
             type
             relatedIssue {
+              ...issueInfo
+              state {
+                ...stateInfo
+              }
+              team {
+                ...teamInfo
+              }
+              labels {
+                nodes {
+                  ...labelInfo
+                }
+              }
+              assignee {
+                ...userInfo
+              }
+            }
+          }
+        }
+        inverseRelations {
+          nodes {
+            id
+            type
+            issue {
               ...issueInfo
               state {
                 ...stateInfo

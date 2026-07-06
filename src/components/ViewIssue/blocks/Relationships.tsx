@@ -8,12 +8,13 @@ import { Relation } from '../../../services/linear/types';
 
 interface Relationships {
     relationships: Relation[];
+    inverseRelations: Relation[];
     issueID: string;
 };
 
-export function Relationships({ relationships, issueID }: Relationships) {
+export function Relationships({ relationships, inverseRelations, issueID }: Relationships) {
     const navigate = useNavigate();
-    const { relationships: trueRelationships, error } = useIssueRelationships(relationships, issueID);
+    const { relationships: trueRelationships, error } = useIssueRelationships(relationships, inverseRelations);
 
     return (
         <>

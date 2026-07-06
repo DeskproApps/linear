@@ -31,7 +31,7 @@ const IssueItem: FC<Props> = ({ issue, onClickTitle }) => {
       || get(issue, ["assignee", "email"]);
   }, [issue]);
   const labels = useMemo(() => get(issue, ["labels"], []) || [], [issue]);
-  const { relationships, error } = useIssueRelationships(issue.relations, issue.id);
+  const { relationships, error } = useIssueRelationships(issue.relations, issue.inverseRelations ?? []);
 
   const onClick: MouseEventHandler<HTMLAnchorElement> = useCallback((e) => {
     e.preventDefault();

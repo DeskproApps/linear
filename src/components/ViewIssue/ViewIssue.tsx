@@ -41,7 +41,7 @@ const ViewIssue: FC<Props> = ({
       <HorizontalDivider/>
 
       <Container>
-        <Relationships relationships={issue?.relations || []} issueID={issue?.id || ''} />
+        <Relationships relationships={issue?.relations || []} inverseRelations={issue?.inverseRelations || []} issueID={issue?.id || ''} />
       </Container>
 
       <HorizontalDivider />
