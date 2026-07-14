@@ -49,6 +49,18 @@ const issueNodeFields = `
       }
     }
   }
+  inverseRelations {
+    nodes {
+      type
+      issue {
+        ...issueInfo
+        state { ...stateInfo }
+        team { ...teamInfo }
+        labels { nodes { ...labelInfo } }
+        assignee { ...userInfo }
+      }
+    }
+  }
   releases {
     nodes {
       id

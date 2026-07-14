@@ -83,6 +83,7 @@ export type Issue = Omit<IssueGQL, "labels"|"children"|"comments"|"team"> & {
   comments: IssueComment[],
   team: Team,
   relations: Relation[],
+  inverseRelations: Relation[],
   releases: Release[],
 };
 

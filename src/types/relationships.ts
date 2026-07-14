@@ -1,11 +1,12 @@
-export type RelationshipType = 'related' | 'blocks' | 'duplicate' | 'blocked' | 'duplicated';
+export type RelationshipType = 'related' | 'blocks' | 'duplicate' | 'blocked' | 'duplicated' | 'similar';
 
 export const RELATIONSHIP_LABELS: Record<RelationshipType, string> = {
     related: 'Related to',
     blocks: 'Blocking',
     duplicate: 'Duplicates',
     blocked: 'Blocked by',
-    duplicated: 'Duplicated by'
+    duplicated: 'Duplicated by',
+    similar: 'Similar to'
 };
 
 export const RELATIONSHIP_OPTIONS = [
