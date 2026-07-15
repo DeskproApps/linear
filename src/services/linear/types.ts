@@ -84,6 +84,7 @@ export type Issue = Omit<IssueGQL, "labels"|"children"|"comments"|"team"> & {
   team: Team,
   relations: Relation[],
   inverseRelations: Relation[],
+  releases: Release[],
 };
 
 export type WorkflowState = WorkflowStateGQL;
@@ -110,3 +111,24 @@ export type IssueEditInput = Pick<
 export type IssueLabelInput = Pick<IssueLabelCreateInputGQL, "teamId"|"name"|"color">
 
 export type Relation = IssueRelationGQL;
+
+// Linear's Releases feature is not present in the vendored GraphQL schema
+// (Linear-API@current.graphql predates it), so these are hand-rolled to mirror
+// the live API rather than generated. See Release/ReleaseStage in Linear's
+// public schema.
+export type ReleaseStageType = "planned"|"started"|"completed"|"canceled";
+
+export type ReleaseStage = {
+  id: string,
+  name: string,
+  type: ReleaseStageType,
+  color: string,
+};
+
+export type Release = {
+  id: string,
+  name: string,
+  version: string|null,
+  url: string,
+  stage: ReleaseStage,
+};

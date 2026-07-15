@@ -1,6 +1,7 @@
 import { removeUnnecessarySpaces } from "./removeUnnecessarySpaces";
 import type { Dict } from "../types";
 import reduce from "lodash/reduce";
+import isEmpty from "lodash/isEmpty";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type GqlParams = Dict<any>;
@@ -35,7 +36,10 @@ const gql: GQL = (params: GqlParams|TemplateStringsArray, ...placeholders: any[]
       const query = constructGqlString(strings, placeholders);
       return JSON.stringify({
         query: removeUnnecessarySpaces(query),
-        variables: params,
+        // Linear's GraphQL API rejects a POST body whose `variables` is an
+        // empty object ("`variables` in a POST body must be an object if
+        // provided."), so only include it when there are variables to send.
+        ...(isEmpty(params) ? {} : { variables: params }),
       });
     };
   }

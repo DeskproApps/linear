@@ -5,6 +5,7 @@ import type { FC } from "react";
 import type { Maybe } from "../../types";
 import type { Issue, WorkflowState } from "../../services/linear/types";
 import { Relationships } from './blocks/Relationships';
+import { Releases } from './blocks/Releases';
 
 type Props = {
   issue: Maybe<Issue>,
@@ -42,6 +43,12 @@ const ViewIssue: FC<Props> = ({
 
       <Container>
         <Relationships relationships={issue?.relations || []} inverseRelations={issue?.inverseRelations || []} issueID={issue?.id || ''} />
+      </Container>
+
+      <HorizontalDivider />
+
+      <Container>
+        <Releases releases={issue?.releases || []} />
       </Container>
 
       <HorizontalDivider />

@@ -79,6 +79,20 @@ const getIssueService = (
             }
           }
         }
+        releases {
+          nodes {
+            id
+            name
+            version
+            url
+            stage {
+              id
+              name
+              type
+              color
+            }
+          }
+        }
       }
     }
     ${issueFullInfoFragment}

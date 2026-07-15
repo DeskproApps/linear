@@ -44,5 +44,17 @@ describe("gql", () => {
     expect(query).toBe(result);
   });
 
+  test("should omit variables when the variables object is empty", () => {
+    const query = gql({})`
+      query Issues($filter: IssueFilter) {
+        issues(filter: $filter) { nodes { id } }
+      }
+    `;
+
+    const result = "{\"query\":\"query Issues($filter: IssueFilter) { issues(filter: $filter) { nodes { id } } }\"}";
+
+    expect(query).toBe(result);
+  });
+
   test.todo("pass wrong values");
 });
